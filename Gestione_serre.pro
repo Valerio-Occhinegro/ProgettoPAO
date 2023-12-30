@@ -13,6 +13,7 @@ SOURCES += \
     luxometro.cpp \
     main.cpp \
     mainwindow.cpp \
+    sens_info.cpp \
     sensore.cpp \
     serra.cpp \
     termometro.cpp
@@ -21,6 +22,7 @@ HEADERS += \
     igrometro.h \
     luxometro.h \
     mainwindow.h \
+    sens_info.h \
     sensore.h \
     serra.h \
     termometro.h

@@ -3,8 +3,8 @@
 
 #include<vector>
 #include<string>
-#include<sensore.h>
-#include<termometro.h>
+#include "sensore.h"
+
 
 class Serra{
 private:
@@ -13,6 +13,7 @@ private:
     unsigned short size;    // vettore che conterrà tutti i sensori presenti in una serra
 public:
     Serra(std::string);
+    ~Serra();
     const std::vector<const Sensore*>& getSensori()const;
     void addSensore(const Sensore *);
     void print() const;
@@ -21,7 +22,7 @@ public:
     unsigned short getSize() const;
     Serra& insert(const Sensore*);
     Serra& remove(const Sensore*);
-    Serra& destroy();
+    void destroy();
 
 };
 

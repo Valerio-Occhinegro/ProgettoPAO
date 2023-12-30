@@ -3,7 +3,11 @@
 #include <iostream>
 Serra::Serra(std::string n): name(n){}
 
-const std::vector<const Sensore *> &Serra::getSensori() const{
+Serra::~Serra(){
+    destroy();
+}
+
+const std::vector<const Sensore *> &Serra::getSensori() const{//get sensore
     return sensori;
 }
 
@@ -26,8 +30,7 @@ Serra& Serra::insert(const Sensore* s){
 void Serra::print()const{
     std::cout<<"nome della serra: "<< name<<std::endl;
     for(std::vector<const Sensore *>::const_iterator it = sensori.begin(); it!= sensori.end(); ++it){
-        const Sensore* const & s = *it;
-        s->printMeasure();
+        (*it)->printMeasure();
     }
 
 
@@ -35,16 +38,20 @@ void Serra::print()const{
 
 Serra& Serra::remove(const Sensore* s){
     std::vector<const Sensore*>::iterator it = std::find(sensori.begin(), sensori.end(), s);
-    if (it != sensori.end())
+    if (it != sensori.end()){
+        delete *it;
         sensori.erase(it);
+    }
 
     return *this;
 
 }
 
-Serra& Serra::destroy(){
-    sensori.clear();
-    return *this;
+void Serra::destroy(){
+    for(std::vector<const Sensore *>::const_iterator it = sensori.begin(); it!= sensori.end(); ++it){
+        delete *it;
+        sensori.erase(it);
+    }
 }
 
 

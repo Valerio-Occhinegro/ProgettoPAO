@@ -1,10 +1,10 @@
 #include "mainwindow.h"
 
 #include <QApplication>
-#include <termometro.h>
-#include <igrometro.h>
-#include <luxometro.h>
-#include <serra.h>
+#include "termometro.h"
+#include "igrometro.h"
+#include "luxometro.h"
+#include "serra.h"
 #include <iostream>//////////////////////////////
 
 
@@ -14,24 +14,22 @@ int main(int argc, char *argv[]){
     MainWindow w;
     w.show();
     return a.exec();*/
-    Termometro uno("Giolitti");
-    Igrometro due ("Togliatti");
-    Luxometro dux ("Benito");
+    Sensore * primo=new Termometro("Togliatti");
+    Sensore * secondo=new Igrometro("Giolitti");
+    Sensore * terzo=new Luxometro("dux");
 
     Serra quinto("fattoria Piave");
-    quinto.addSensore(&uno);
-    quinto.addSensore(&due);
-    quinto.addSensore(&dux);
+    quinto.addSensore(primo);
+    quinto.addSensore(secondo);
+    quinto.addSensore(terzo);
+    std::cout<<"stampa pre eliminazione"<<std::endl;
     quinto.print();
-    quinto.remove(&dux);
+    quinto.remove(secondo);
+    std::cout<<"stampa post eliminazione"<<std::endl;
     quinto.print();
+    std::cout<<"se dio esiste me lo deve dimostrare ora"<<std::endl;
+    secondo->printMeasure();
 
-    quinto.destroy();
-
-    quinto.print();
-    std::cout<<"heehe niente distruzione profonda"<<std::endl;
-
-    dux.printMeasure();
 
 
 
