@@ -7,7 +7,7 @@ Serra::~Serra(){
     destroy();
 }
 
-const std::vector<const Sensore *> &Serra::getSensori() const{//get sensore
+const std::vector<const Sensore *> &Serra::getSensori() const{
     return sensori;
 }
 
@@ -33,7 +33,6 @@ void Serra::print()const{
         (*it)->printMeasure();
     }
 
-
 }
 
 Serra& Serra::remove(const Sensore* s){
@@ -47,7 +46,7 @@ Serra& Serra::remove(const Sensore* s){
 
 }
 
-void Serra::destroy(){
+void Serra::destroy(){//boh
     for(std::vector<const Sensore *>::const_iterator it = sensori.begin(); it!= sensori.end(); ++it){
         delete *it;
         sensori.erase(it);

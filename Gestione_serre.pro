@@ -13,18 +13,24 @@ SOURCES += \
     luxometro.cpp \
     main.cpp \
     mainwindow.cpp \
+    sens_blocco.cpp \
     sens_info.cpp \
+    sens_widget.cpp \
     sensore.cpp \
     serra.cpp \
+    term_blocco.cpp \
     termometro.cpp
 
 HEADERS += \
     igrometro.h \
     luxometro.h \
     mainwindow.h \
+    sens_blocco.h \
     sens_info.h \
+    sens_widget.h \
     sensore.h \
     serra.h \
+    term_blocco.h \
     termometro.h
 
 FORMS += \

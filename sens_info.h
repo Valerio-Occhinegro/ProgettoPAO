@@ -8,12 +8,12 @@
 class Sens_info : public QWidget{
     Q_OBJECT
 private:
-    Sensore& sensore;
+    const Sensore* sensore;
     QLabel* name_label;
     QLabel* min_label;
     QLabel* max_label;
 public:
-    Sens_info(Sensore & sensore, QWidget *parent = nullptr);
+    Sens_info(const Sensore *sensore, QWidget *parent = nullptr);
     void show();
 signals:
 };
