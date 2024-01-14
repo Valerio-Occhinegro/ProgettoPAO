@@ -10,18 +10,25 @@
 
 int main(int argc, char *argv[]){
     QApplication a(argc, argv);
-     /*
-    MainWindow w;
-    w.show();
-    return a.exec();*/
+
     Sensore * primo=new Termometro("Togliatti");
     Sensore * secondo=new Igrometro("Giolitti");
-    Sensore * terzo=new Luxometro("dux");
+    Sensore * terzo=new Luxometro("De Gasperi");
 
-    Serra quinto("fattoria Piave");
-    quinto.addSensore(primo);
-    quinto.addSensore(secondo);
-    quinto.addSensore(terzo);
+    Serra *quinto=new Serra("fattoria Piave");
+
+    quinto->addSensore(primo);
+    quinto->addSensore(secondo);
+    quinto->addSensore(terzo);
+
+    //vista
+    MainWindow w(quinto);
+    w.show();
+    return a.exec();
+
+
+
+    /*
     std::cout<<"stampa pre eliminazione"<<std::endl;
     quinto.print();
     quinto.remove(secondo);
@@ -29,7 +36,7 @@ int main(int argc, char *argv[]){
     quinto.print();
     std::cout<<"se dio esiste me lo deve dimostrare ora"<<std::endl;
     secondo->printMeasure();
-
+    */
 
 
 

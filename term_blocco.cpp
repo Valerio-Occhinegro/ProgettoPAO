@@ -1,3 +1,6 @@
 #include "term_blocco.h"
 
-term_blocco::term_blocco(std::vector<const Sensore*>& sensori, QWidget *parent) : Sens_blocco(sensori, parent) {}
+term_blocco::term_blocco(Serra * serra, QWidget *parent) : Sens_blocco(serra, parent) {
+    QString t="Termometri";
+    setTitolo(t);
+}

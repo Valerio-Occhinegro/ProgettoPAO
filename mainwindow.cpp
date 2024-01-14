@@ -1,15 +1,14 @@
 #include "mainwindow.h"
-#include "ui_mainwindow.h"
+#include "vista.h"
 
-MainWindow::MainWindow(QWidget *parent)
-    : QMainWindow(parent)
-    , ui(new Ui::MainWindow)
-{
-    ui->setupUi(this);
-}
 
-MainWindow::~MainWindow()
-{
-    delete ui;
+#include <QHBoxLayout>
+#include <QMenuBar>
+#include <QPushButton>
+
+
+MainWindow::MainWindow(Serra *serra,QWidget *parent): QMainWindow(parent){
+    Vista* vista_principale= new Vista(serra);
+    setCentralWidget(vista_principale);
 }
 

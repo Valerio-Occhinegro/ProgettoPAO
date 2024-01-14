@@ -14,6 +14,8 @@ Sens_info::Sens_info(const Sensore *sensore,QWidget *parent): QWidget(parent), s
 
     max_label= new QLabel();
     layout-> addWidget(max_label);
+
+    show();
 }
 
 void Sens_info::show(){

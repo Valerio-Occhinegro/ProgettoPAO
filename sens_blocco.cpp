@@ -1,37 +1,42 @@
 #include "sens_blocco.h"
-#include <QVBoxLayout>
+
 #include <QPushButton>
 #include <QString>
 
 #include "sens_widget.h"
 
 
-Sens_blocco::Sens_blocco(std::vector<const Sensore*>& sensori, QWidget *parent): QWidget{parent}{
+Sens_blocco::Sens_blocco(Serra* serra, QWidget *parent): QWidget{parent}{
     //layout che conterrà tutto il blocco
-    QVBoxLayout* layout= new QVBoxLayout(this);
-    layout->setAlignment(Qt::AlignCenter | Qt::AlignTop);
+    layout_blocco= new QVBoxLayout(this);
+    layout_blocco->setAlignment(Qt::AlignCenter | Qt::AlignTop);
 
     //layout per i sens_widget a cui aggiungerò anche una barra per lo scroll laterale
-    QVBoxLayout* layout_sens= new QVBoxLayout(this);
+    layout_sens= new QVBoxLayout(this);
     layout_sens->setAlignment(Qt::AlignCenter | Qt::AlignTop);
 
     titolo= new QLabel();
-    layout-> addWidget(titolo);
+    layout_blocco-> addWidget(titolo);
 
 
 
     /*for(ogni elemento presente nel contenitore serra)
     creo un sens_widget*/
-    for(std::vector<const Sensore *>::const_iterator it = sensori.begin(); it!= sensori.end(); ++it){
+    for(std::vector<const Sensore *>::const_iterator it = serra->getSensori().begin(); it!= serra->getSensori().end(); ++it){
         sens_widget *elemento=new sens_widget(*it, this);
         layout_sens->addWidget(elemento);//non ne ho idea ;)
     }
 
+    layout_blocco-> addLayout(layout_sens);
+
     QPushButton* nuovo = new QPushButton("nuovo");
-    layout-> addWidget(nuovo);
+    layout_blocco-> addWidget(nuovo);
 
 }
 
-void Sens_blocco::setTitolo(QString){
+void Sens_blocco::setTitolo(QString & tipo){
     titolo->setText(tipo);
 }
+
+
+

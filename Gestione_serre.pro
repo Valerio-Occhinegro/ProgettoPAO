@@ -9,7 +9,9 @@ CONFIG += c++17
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
+    idro_blocco.cpp \
     igrometro.cpp \
+    lux_blocco.cpp \
     luxometro.cpp \
     main.cpp \
     mainwindow.cpp \
@@ -18,11 +20,15 @@ SOURCES += \
     sens_widget.cpp \
     sensore.cpp \
     serra.cpp \
+    serra_widget.cpp \
     term_blocco.cpp \
-    termometro.cpp
+    termometro.cpp \
+    vista.cpp
 
 HEADERS += \
+    idro_blocco.h \
     igrometro.h \
+    lux_blocco.h \
     luxometro.h \
     mainwindow.h \
     sens_blocco.h \
@@ -30,8 +36,10 @@ HEADERS += \
     sens_widget.h \
     sensore.h \
     serra.h \
+    serra_widget.h \
     term_blocco.h \
-    termometro.h
+    termometro.h \
+    vista.h
 
 FORMS += \
     mainwindow.ui

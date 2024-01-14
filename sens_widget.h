@@ -3,6 +3,7 @@
 
 #include <QWidget>
 #include <QLabel>
+#include <QHBoxLayout>
 #include "sensore.h"
 
 class sens_widget : public QWidget{
@@ -10,7 +11,8 @@ class sens_widget : public QWidget{
 
 private:
     const Sensore* sensore;
-    QLabel* name_label;
+    QHBoxLayout* layout_sens;
+
 public:
     sens_widget(const Sensore * sensore, QWidget *parent = nullptr);
 
