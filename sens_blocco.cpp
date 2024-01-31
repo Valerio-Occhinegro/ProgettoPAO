@@ -3,6 +3,7 @@
 #include <QPushButton>
 #include <QString>
 #include <QInputDialog>
+#include <QMessageBox>
 
 #include "sens_widget.h"
 #include "termometro.h"
@@ -46,15 +47,16 @@ void Sens_blocco::aggiungi(){
     QString nome = QInputDialog::getText(this, tr("Creazione sensore"),tr("Nome sensore:"), QLineEdit::Normal);
     const Sensore *nuovo;
     sens_widget *el;
-    if(nome!="")
-    nuovo=new Termometro(nome.toStdString());
-    else
-    nuovo=new Termometro("padre dovevi darmi un nome :(");
-
-    el=new sens_widget(nuovo,serra,this);
-    //el->getSens()->setName("boh");
-    serra->insert(nuovo);
-    layout_sens->addWidget(el);
+    if(nome!="" && nome.size()<=18){//se non do un nome al sensore, il sens widget non viene creato
+        nuovo=new Termometro(nome.toStdString());
+        el=new sens_widget(nuovo,serra,this);
+        serra->insert(nuovo);
+        layout_sens->addWidget(el);
+    }
+    else if(nome.size()>18)
+        QMessageBox::warning(this, tr("Problema in input"), tr("il nome deve avere una dimensione inferiore a 19 caratteri"));
+    else if(nome=="")
+        QMessageBox::warning(this, tr("Problema in input"), tr("il nome non può essere vuoto"));
 }
 
 

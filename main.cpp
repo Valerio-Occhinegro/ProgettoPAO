@@ -20,8 +20,7 @@ int main(int argc, char *argv[]){
     quinto->addSensore(primo);
     quinto->addSensore(secondo);
     quinto->addSensore(terzo);
-    quinto->remove(secondo);
-    primo->printMeasure();
+
 
     //vista
     MainWindow w(quinto);

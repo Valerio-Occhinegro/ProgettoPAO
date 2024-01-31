@@ -3,7 +3,9 @@
 #include <QVBoxLayout>
 
 
-Sens_info::Sens_info(const Sensore *sensore,QWidget *parent): QWidget(parent), sensore(sensore){
+
+Sens_info::Sens_info(const sens_widget *sWidget,QWidget *parent): QWidget(parent), sWidget(sWidget){
+    InfoSensore=sWidget->getSens();
     QVBoxLayout* layout= new QVBoxLayout(this);
     layout->setAlignment(Qt::AlignLeft | Qt::AlignTop);
 
@@ -20,10 +22,10 @@ Sens_info::Sens_info(const Sensore *sensore,QWidget *parent): QWidget(parent), s
 }
 
 void Sens_info::show(){
-    name_label->setText(QString::fromStdString(sensore->getName()));
+    name_label->setText(QString::fromStdString(InfoSensore->getName()));
 
-    min_label->setText("Min: " + QString::number(sensore->getMin())); //cercare come approssimare a 2 dopo la virgola
+    min_label->setText("Min: " + QString::number(InfoSensore->getMin())); //cercare come approssimare a 2 dopo la virgola
 
-    max_label->setText("Max: " + QString::number(sensore->getMax())); //cercare come approssimare a 2 dopo la virgola
+    max_label->setText("Max: " + QString::number(InfoSensore->getMax())); //cercare come approssimare a 2 dopo la virgola
 
 }
