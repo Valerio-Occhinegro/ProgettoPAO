@@ -59,3 +59,7 @@ void Sensore::setMax(){
 void Sensore::setMeasure(){
     measure=calcMeasure();
 }
+
+void Sensore::setName(std::string & n){
+    name=n;
+}

@@ -5,6 +5,7 @@
 #include <QLabel>
 #include "sensore.h"
 
+
 class Sens_info : public QWidget{
     Q_OBJECT
 private:
@@ -13,9 +14,14 @@ private:
     QLabel* min_label;
     QLabel* max_label;
 public:
-    Sens_info(const Sensore *sensore, QWidget *parent = nullptr);
+    Sens_info(const Sensore* =0, QWidget *parent = nullptr);
     void show();
-signals:
+
+    void setInfo(char * serra, char* test, char* max, char *min);//////////
+public slots:
+
+    void mostra(){
+    };
 };
 
 #endif // SENS_INFO_H

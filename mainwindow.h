@@ -16,6 +16,7 @@ class MainWindow : public QMainWindow{
 
 public:
     MainWindow(Serra *serra,QWidget *parent = nullptr);
+
 };
 #endif // MAINWINDOW_H
 

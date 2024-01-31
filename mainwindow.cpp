@@ -12,3 +12,4 @@ MainWindow::MainWindow(Serra *serra,QWidget *parent): QMainWindow(parent){
     setCentralWidget(vista_principale);
 }
 
+

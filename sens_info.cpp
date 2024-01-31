@@ -1,4 +1,5 @@
 #include "sens_info.h"
+
 #include <QVBoxLayout>
 
 

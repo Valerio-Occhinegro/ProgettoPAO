@@ -9,7 +9,7 @@ CONFIG += c++17
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
-    idro_blocco.cpp \
+    igro_blocco.cpp \
     igrometro.cpp \
     lux_blocco.cpp \
     luxometro.cpp \
@@ -26,7 +26,7 @@ SOURCES += \
     vista.cpp
 
 HEADERS += \
-    idro_blocco.h \
+    igro_blocco.h \
     igrometro.h \
     lux_blocco.h \
     luxometro.h \

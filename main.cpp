@@ -20,6 +20,8 @@ int main(int argc, char *argv[]){
     quinto->addSensore(primo);
     quinto->addSensore(secondo);
     quinto->addSensore(terzo);
+    quinto->remove(secondo);
+    primo->printMeasure();
 
     //vista
     MainWindow w(quinto);
@@ -34,7 +36,7 @@ int main(int argc, char *argv[]){
     quinto.remove(secondo);
     std::cout<<"stampa post eliminazione"<<std::endl;
     quinto.print();
-    std::cout<<"se dio esiste me lo deve dimostrare ora"<<std::endl;
+    std::cout<<"test test"<<std::endl;
     secondo->printMeasure();
     */
 

@@ -20,11 +20,8 @@ unsigned short Serra::getSize() const{
     return sensori.size();
 }
 
-Serra& Serra::insert(const Sensore* s){
+void Serra::insert(const Sensore* s){
     sensori.push_back(s);
-
-    return *this;
-
 }
 
 void Serra::print()const{
@@ -35,14 +32,12 @@ void Serra::print()const{
 
 }
 
-Serra& Serra::remove(const Sensore* s){
+void Serra::remove(const Sensore* s){
     std::vector<const Sensore*>::iterator it = std::find(sensori.begin(), sensori.end(), s);
     if (it != sensori.end()){
         delete *it;
         sensori.erase(it);
     }
-
-    return *this;
 
 }
 

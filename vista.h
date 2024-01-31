@@ -7,6 +7,7 @@
 
 #include "sensore.h"
 #include "termometro.h"
+#include "sens_info.h"
 #include "serra.h"
 
 class Vista: public QWidget{

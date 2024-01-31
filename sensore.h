@@ -33,6 +33,7 @@ public:
     void setMin();
     void setMax();
     void setMeasure();
+    void setName(std::string &);
     virtual std::vector<double> calcMeasure()=0;
 };
 

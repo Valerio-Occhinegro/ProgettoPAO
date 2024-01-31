@@ -20,8 +20,8 @@ public:
 
 
     unsigned short getSize() const;
-    Serra& insert(const Sensore*);
-    Serra& remove(const Sensore*);
+    void insert(const Sensore*);
+    void remove(const Sensore*);
     void destroy();
 
 };
