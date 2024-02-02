@@ -17,7 +17,7 @@ Vista::Vista(Serra *serra, QWidget *parent): QWidget(parent) {
 
     downLayout= new QHBoxLayout(this);
 
-    addMenu();//aggiungo il menu
+    //addMenu();//aggiungo il menu
 
     addUpLayout();
 
@@ -26,18 +26,6 @@ Vista::Vista(Serra *serra, QWidget *parent): QWidget(parent) {
     setLayout(mainLayout);
 }
 
-
-void Vista::addMenu(){
-    QMenuBar* menubar= new QMenuBar(this);
-    QMenu* menu= new QMenu("File",menubar);
-    QAction* exit= new QAction("Exit",menu);
-
-    menu->addAction(exit);
-
-    menubar->addMenu(menu);
-
-    mainLayout->addWidget(menubar);
-}
 
 void Vista::addUpLayout(){
     Serra_widget *serra= new Serra_widget();

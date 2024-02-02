@@ -24,8 +24,6 @@ private:
 public:
     Vista(Serra *serra,QWidget *parent = nullptr);
 
-
-    void addMenu();
     void addUpLayout();
     void addDownLayout(Serra *serra);
 
