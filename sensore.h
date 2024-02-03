@@ -3,7 +3,7 @@
 
 #include <string>
 #include <vector>
-
+#include "sensorvisitorinterface.h"
 
 class Sensore{
 private:
@@ -35,6 +35,7 @@ public:
     void setMeasure();
     void setName(std::string &);
     virtual std::vector<double> calcMeasure()=0;
+    virtual void accept(SensorVisitorInterface & visitor) = 0;
 };
 
 #endif // SENSORE_H

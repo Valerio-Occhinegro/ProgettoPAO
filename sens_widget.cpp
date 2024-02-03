@@ -6,12 +6,16 @@
 #include <QMessageBox>
 
 sens_widget::sens_widget(const Sensore * sensore,Serra* serra, QWidget *parent/*, const Sens_info* display*/): QWidget(parent), sensore(sensore), serra(serra){
+
     layout_sens= new QHBoxLayout(this);
     layout_sens->setAlignment(Qt::AlignLeft | Qt::AlignTop);
 
     bVisualizza = new QPushButton();
+    bVisualizza->setSizePolicy(QSizePolicy::Fixed,QSizePolicy::Fixed);
     bVisualizza->setText(QString::fromStdString(sensore->getName()));
     layout_sens-> addWidget(bVisualizza);
+    //connect(bVisualizza, &QPushButton::pressed, this, &sens_widget::visualizza);
+
     /*connect(visualizza, &QPushButton::pressed,/////////
             [&display,this](){
         display->setInfo(this->serra, this->sensore);
@@ -19,10 +23,12 @@ sens_widget::sens_widget(const Sensore * sensore,Serra* serra, QWidget *parent/*
 
 
     bModifica = new QPushButton("modifica");
+    bModifica->setSizePolicy(QSizePolicy::Fixed,QSizePolicy::Fixed);
     layout_sens-> addWidget(bModifica);
     connect(bModifica, &QPushButton::pressed, this, &sens_widget::modifica);
 
     bElimina = new QPushButton("elimina");
+    bElimina->setSizePolicy(QSizePolicy::Fixed,QSizePolicy::Fixed);
     layout_sens-> addWidget(bElimina);
     connect(bElimina, &QPushButton::pressed, this, &sens_widget::elimina);
 
@@ -60,8 +66,6 @@ void sens_widget::modifica(){
         QMessageBox::warning(this, tr("Problema in input"), tr("il nome non può essere vuoto"));
 }
 
-void sens_widget::visualizza(){
-    Sens_info(this);
-}
+
 
 

@@ -19,6 +19,7 @@ SOURCES += \
     sens_info.cpp \
     sens_widget.cpp \
     sensore.cpp \
+    sensorinfovisitor.cpp \
     serra.cpp \
     serra_widget.cpp \
     term_blocco.cpp \
@@ -35,6 +36,8 @@ HEADERS += \
     sens_info.h \
     sens_widget.h \
     sensore.h \
+    sensorinfovisitor.h \
+    sensorvisitorinterface.h \
     serra.h \
     serra_widget.h \
     term_blocco.h \

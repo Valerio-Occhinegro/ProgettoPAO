@@ -3,27 +3,24 @@
 
 #include <QWidget>
 #include <QLabel>
+
 #include "sensore.h"
-#include "sens_widget.h"
+#include "sensorinfovisitor.h"
+
 
 
 class Sens_info : public QWidget{
     Q_OBJECT
 private:
     const Sensore* InfoSensore;
-    const sens_widget* sWidget;
-    QLabel* name_label;
-    QLabel* min_label;
-    QLabel* max_label;
+
 public:
-    Sens_info(const sens_widget* =0, QWidget *parent = nullptr);
-    void show();
+    Sens_info( Sensore* =0, QWidget *parent = nullptr);
+
 
     /*void setInfo(char * serra, char* test, char* max, char *min);/////////*/
 public slots:
 
-    void mostra(){
-    };
 };
 
 #endif // SENS_INFO_H

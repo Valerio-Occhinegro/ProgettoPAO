@@ -39,3 +39,7 @@ std::vector<double> Termometro::calcMeasure(){
 
 }
 
+void Termometro::accept(SensorVisitorInterface & visitor) {
+    visitor.visitTermometro(*this);
+}
+

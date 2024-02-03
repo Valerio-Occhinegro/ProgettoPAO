@@ -43,3 +43,7 @@ std::vector<double> Luxometro::calcMeasure(){
     return m;
 }
 
+void Luxometro::accept(SensorVisitorInterface &visitor){
+    visitor.visitLuxometro(*this);
+}
+

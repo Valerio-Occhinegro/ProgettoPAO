@@ -5,9 +5,12 @@
 #include <QLabel>
 #include <QHBoxLayout>
 #include <QPushButton>
+#include <QWindow>
 
 #include "sensore.h"
 #include "serra.h"
+#include "sens_info.h"
+
 
 
 
@@ -17,13 +20,13 @@ class sens_widget : public QWidget{
 private:
     const Sensore* sensore;
     Serra* serra;
+
     QHBoxLayout* layout_sens;
     QPushButton* bVisualizza;
     QPushButton* bModifica;
     QPushButton* bElimina;
 
 public:
-    //friend class Sens_info;//////////////*_*
     sens_widget(const Sensore * , Serra* , QWidget *parent = nullptr);
     void elimina();
     const Sensore* getSens()const;

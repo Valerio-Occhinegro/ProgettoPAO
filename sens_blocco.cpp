@@ -4,15 +4,20 @@
 #include <QString>
 #include <QInputDialog>
 #include <QMessageBox>
+#include <QScrollArea>
+
 
 #include "sens_widget.h"
 #include "termometro.h"
 
 
 Sens_blocco::Sens_blocco(Serra* serra, QWidget *parent): QWidget(parent), serra(serra){
+
+
     //layout che conterrà tutto il blocco
     layout_blocco= new QVBoxLayout(this);
     layout_blocco->setAlignment(Qt::AlignCenter | Qt::AlignTop);
+
 
     //layout per i sens_widget a cui aggiungerò anche una barra per lo scroll laterale
     layout_sens= new QVBoxLayout(this);
@@ -27,10 +32,23 @@ Sens_blocco::Sens_blocco(Serra* serra, QWidget *parent): QWidget(parent), serra(
     creo un sens_widget*/
     for(std::vector<const Sensore *>::const_iterator it = serra->getSensori().begin(); it!= serra->getSensori().end(); ++it){
         sens_widget *elemento=new sens_widget(*it,serra,this);
+        elemento->setSizePolicy(QSizePolicy::Fixed,QSizePolicy::Fixed);
         layout_sens->addWidget(elemento);//non ne ho idea ;)
     }
 
-    layout_blocco-> addLayout(layout_sens);
+    //layout_blocco-> addLayout(layout_sens);////////
+
+
+    //serve un modo per fare il refresh ogni volta che aggiungo un sens_widget(observer???)
+    QScrollArea *scrollArea = new QScrollArea;
+    QWidget *scrollLayout= new QWidget;
+    scrollLayout->setLayout(layout_sens);
+    scrollLayout->setSizePolicy(QSizePolicy::Fixed,QSizePolicy::Fixed);
+    scrollArea->setSizePolicy(QSizePolicy::Fixed, QSizePolicy::Fixed);
+    scrollArea->setWidget(scrollLayout);
+
+    layout_blocco->addWidget(scrollArea);
+
 
     QPushButton* nuovo = new QPushButton("nuovo");
     layout_blocco-> addWidget(nuovo);

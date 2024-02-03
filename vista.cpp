@@ -17,8 +17,6 @@ Vista::Vista(Serra *serra, QWidget *parent): QWidget(parent) {
 
     downLayout= new QHBoxLayout(this);
 
-    //addMenu();//aggiungo il menu
-
     addUpLayout();
 
     addDownLayout(serra);

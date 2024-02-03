@@ -38,3 +38,7 @@ std::vector<double> Igrometro::calcMeasure(){
     return m;
 }
 
+void Igrometro::accept(SensorVisitorInterface &visitor){
+    visitor.visitIgrometro(*this);
+}
+
