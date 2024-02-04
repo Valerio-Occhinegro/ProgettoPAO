@@ -36,7 +36,6 @@ sens_widget::sens_widget(const Sensore * sensore,Serra* serra, QWidget *parent/*
 
 void sens_widget::elimina(){
     QMessageBox conferma;
-
     conferma.setText("procedere all'eliminazione?");
     conferma.setStandardButtons(QMessageBox::Ok | QMessageBox::Cancel);
     conferma.setDefaultButton(QMessageBox::Ok);
@@ -54,7 +53,9 @@ const Sensore * sens_widget::getSens()const{
 }
 
 void sens_widget::modifica(){
-    QString nome = QInputDialog::getText(this, tr("modifica sensore"),tr("cambia il nome:"), QLineEdit::Normal);
+    QInputDialog dialog;
+    dialog.setCancelButtonText("annulla");
+    QString nome = dialog.getText(this, tr("modifica sensore"),tr("cambia il nome:"), QLineEdit::Normal);
     std::string conversion=nome.toStdString();
     if(nome!="" && conversion.size()<=18){//se non do un nome al sensore, il sens widget non viene creato
         const_cast<Sensore*>(sensore)->setName(conversion);
@@ -62,8 +63,7 @@ void sens_widget::modifica(){
     }
     else if(conversion.size()>18)
         QMessageBox::warning(this, tr("Problema in input"), tr("il nome deve avere una dimensione inferiore a 19 caratteri"));
-    else if(nome=="")
-        QMessageBox::warning(this, tr("Problema in input"), tr("il nome non può essere vuoto"));
+
 }
 
 

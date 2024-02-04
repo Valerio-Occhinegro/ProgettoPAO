@@ -37,6 +37,7 @@ HEADERS += \
     sens_widget.h \
     sensore.h \
     sensorinfovisitor.h \
+    sensorobserverinterface.h \
     sensorvisitorinterface.h \
     serra.h \
     serra_widget.h \

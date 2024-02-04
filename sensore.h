@@ -4,6 +4,7 @@
 #include <string>
 #include <vector>
 #include "sensorvisitorinterface.h"
+#include "sensorobserverinterface.h"
 
 class Sensore{
 private:
@@ -14,6 +15,7 @@ private:
     double meanMin;
     double meanMax;
     std::vector<double> measure;
+    std::vector <SensorObserverInterface * > observers ;
 public:
     Sensore(std::string, double, double, double, double);
     virtual ~Sensore();
@@ -36,6 +38,7 @@ public:
     void setName(std::string &);
     virtual std::vector<double> calcMeasure()=0;
     virtual void accept(SensorVisitorInterface & visitor) = 0;
+    void registerObserver (SensorObserverInterface * obs);
 };
 
 #endif // SENSORE_H

@@ -50,16 +50,32 @@ std::vector<double> Sensore::getMeasure() const{
 
 void Sensore::setMin(){
     min=*(std::min_element(measure.begin(), measure.end()));
+    for ( auto observer = observers.begin(); observer != observers.end(); observer++){
+        (*observer)->notify(*this);
+    }
 }
 
 void Sensore::setMax(){
     max=*(std::max_element(measure.begin(), measure.end()));
+    for ( auto observer = observers.begin(); observer != observers.end(); observer++){
+        (*observer)->notify(*this);
+    }
 }
 
 void Sensore::setMeasure(){
     measure=calcMeasure();
+    for ( auto observer = observers.begin(); observer != observers.end(); observer++){
+        (*observer)->notify(*this);
+    }
 }
 
 void Sensore::setName(std::string & n){
     name=n;
+    for ( auto observer = observers.begin(); observer != observers.end(); observer++){
+    (*observer)->notify(*this);
+    }
+}
+
+void Sensore::registerObserver(SensorObserverInterface *obs){
+    observers.push_back(obs);
 }

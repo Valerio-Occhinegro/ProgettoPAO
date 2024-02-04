@@ -29,8 +29,8 @@ void Vista::addUpLayout(){
     Serra_widget *serra= new Serra_widget();
     upLayout->addWidget(serra);
 
-    /*Sens_info* info= new Sens_info(sensTest);///////////il sens test viene passato qui
-    upLayout->addWidget(info);*/
+    info= new Sens_info(sensTest);///////////il sens test viene passato qui
+    upLayout->addWidget(info);
 
     mainLayout->addLayout(upLayout);
 }

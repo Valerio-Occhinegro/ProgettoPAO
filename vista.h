@@ -14,9 +14,10 @@ class Vista: public QWidget{
     Q_OBJECT
 private:
     //per vedere se funziona
-    //const Sensore* sensTest= new Termometro("test");
+    Sensore* sensTest= new Termometro("test");
     //std::vector<const Sensore*> *sensori;
     //
+    Sens_info *info;
     QVBoxLayout *mainLayout;
     QHBoxLayout *upLayout;
     QHBoxLayout *downLayout;

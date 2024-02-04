@@ -9,13 +9,15 @@
 
 
 
-class Sens_info : public QWidget{
+class Sens_info : public QWidget, public SensorObserverInterface{
     Q_OBJECT
 private:
     const Sensore* InfoSensore;
+    QLabel* name_label;
 
 public:
     Sens_info( Sensore* =0, QWidget *parent = nullptr);
+    void notify ( Sensore & sensore ) override ;
 
 
     /*void setInfo(char * serra, char* test, char* max, char *min);/////////*/

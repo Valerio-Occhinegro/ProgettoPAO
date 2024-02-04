@@ -62,7 +62,9 @@ void Sens_blocco::setTitolo(QString & tipo){
 
 //considerare di implementare la funzione in ogni tipo di blocco
 void Sens_blocco::aggiungi(){
-    QString nome = QInputDialog::getText(this, tr("Creazione sensore"),tr("Nome sensore:"), QLineEdit::Normal);
+    QInputDialog dialog;
+    dialog.setCancelButtonText("annulla");
+    QString nome = dialog.getText(this, tr("Creazione sensore"),tr("Nome sensore:"), QLineEdit::Normal);
     const Sensore *nuovo;
     sens_widget *el;
     if(nome!="" && nome.size()<=18){//se non do un nome al sensore, il sens widget non viene creato
@@ -73,8 +75,7 @@ void Sens_blocco::aggiungi(){
     }
     else if(nome.size()>18)
         QMessageBox::warning(this, tr("Problema in input"), tr("il nome deve avere una dimensione inferiore a 19 caratteri"));
-    else if(nome=="")
-        QMessageBox::warning(this, tr("Problema in input"), tr("il nome non può essere vuoto"));
+
 }
 
 
