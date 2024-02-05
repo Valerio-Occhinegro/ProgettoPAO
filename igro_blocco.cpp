@@ -14,6 +14,7 @@ Igro_blocco::Igro_blocco(Serra* serra, QWidget *parent) : Sens_blocco(serra, par
 
     QLabel *titolo= new QLabel();
     titolo->setText(t);
+    titolo->setAlignment(Qt::AlignCenter);
     layout_blocco-> addWidget(titolo);
 
 
@@ -38,9 +39,11 @@ Igro_blocco::Igro_blocco(Serra* serra, QWidget *parent) : Sens_blocco(serra, par
     //serve un modo per fare il refresh ogni volta che aggiungo un sens_widget(observer???)
     QScrollArea *scrollArea = new QScrollArea;
     QWidget *scrollLayout= new QWidget;
+
     scrollLayout->setLayout(layout_sens);
-    scrollLayout->setSizePolicy(QSizePolicy::Fixed,QSizePolicy::Fixed);
-    scrollArea->setSizePolicy(QSizePolicy::Fixed, QSizePolicy::Fixed);
+
+    scrollArea->setWidgetResizable(true);
+
     scrollArea->setWidget(scrollLayout);
 
     layout_blocco->addWidget(scrollArea);

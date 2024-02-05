@@ -15,6 +15,7 @@ term_blocco::term_blocco(Serra * serra, QWidget *parent) : Sens_blocco(serra, pa
 
     QLabel *titolo= new QLabel();
     titolo->setText(t);
+    titolo->setAlignment(Qt::AlignCenter);
     layout_blocco-> addWidget(titolo);
 
 
@@ -40,9 +41,11 @@ term_blocco::term_blocco(Serra * serra, QWidget *parent) : Sens_blocco(serra, pa
     //serve un modo per fare il refresh ogni volta che aggiungo un sens_widget(observer???)
     QScrollArea *scrollArea = new QScrollArea;
     QWidget *scrollLayout= new QWidget;
+
     scrollLayout->setLayout(layout_sens);
-    scrollLayout->setSizePolicy(QSizePolicy::Fixed,QSizePolicy::Fixed);
-    scrollArea->setSizePolicy(QSizePolicy::Fixed, QSizePolicy::Fixed);
+
+    scrollArea->setWidgetResizable(true);
+
     scrollArea->setWidget(scrollLayout);
 
     layout_blocco->addWidget(scrollArea);

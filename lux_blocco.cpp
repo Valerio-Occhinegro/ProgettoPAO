@@ -7,13 +7,14 @@
 #include "sensorinfovisitor.h"
 
 Lux_blocco::Lux_blocco(Serra* serra, QWidget *parent) : Sens_blocco(serra, parent) {
-    QString t="Luxometro";
+    QString t="Luxometri";
     //layout che conterrà tutto il blocco
     layout_blocco= new QVBoxLayout(this);
     layout_blocco->setAlignment(Qt::AlignCenter | Qt::AlignTop);
 
     QLabel *titolo= new QLabel();
     titolo->setText(t);
+    titolo->setAlignment(Qt::AlignCenter);
     layout_blocco-> addWidget(titolo);
 
 
@@ -37,9 +38,11 @@ Lux_blocco::Lux_blocco(Serra* serra, QWidget *parent) : Sens_blocco(serra, paren
     //serve un modo per fare il refresh ogni volta che aggiungo un sens_widget(observer???)
     QScrollArea *scrollArea = new QScrollArea;
     QWidget *scrollLayout= new QWidget;
+
     scrollLayout->setLayout(layout_sens);
-    scrollLayout->setSizePolicy(QSizePolicy::Fixed,QSizePolicy::Fixed);
-    scrollArea->setSizePolicy(QSizePolicy::Fixed, QSizePolicy::Fixed);
+
+    scrollArea->setWidgetResizable(true);
+
     scrollArea->setWidget(scrollLayout);
 
     layout_blocco->addWidget(scrollArea);
