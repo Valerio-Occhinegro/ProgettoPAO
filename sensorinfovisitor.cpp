@@ -7,8 +7,16 @@ QWidget *SensorInfoVisitor::getWidget(){
     return widget;
 }
 
+QString SensorInfoVisitor::getMin(){
+    return minima;
+}
+
+QString SensorInfoVisitor::getMax(){
+    return massima;
+}
+
 void SensorInfoVisitor::visitTermometro(Termometro & termometro){
-    QVBoxLayout* layout= new QVBoxLayout();
+    /*QVBoxLayout* layout= new QVBoxLayout();
     layout->setAlignment(Qt::AlignLeft | Qt::AlignTop);
 
     QLabel* min_label= new QLabel();
@@ -25,10 +33,14 @@ void SensorInfoVisitor::visitTermometro(Termometro & termometro){
 
     widget=new QWidget;
     widget->setLayout(layout);
+*/
+    minima=("Temperatura minima: " + QString::number(termometro.getMin()) + " C°");
+
+    massima=("Temperatura massima: " + QString::number(termometro.getMax()) + " C°" );
 }
 
 void SensorInfoVisitor::visitIgrometro(Igrometro &igrometro){
-    QVBoxLayout* layout= new QVBoxLayout();
+    /*QVBoxLayout* layout= new QVBoxLayout();
     layout->setAlignment(Qt::AlignLeft | Qt::AlignTop);
 
     QLabel* min_label= new QLabel();
@@ -44,22 +56,30 @@ void SensorInfoVisitor::visitIgrometro(Igrometro &igrometro){
     layout-> addWidget(max_label);
 
     widget=new QWidget;
-    widget->setLayout(layout);
+    widget->setLayout(layout);*/
+    minima=("Umidità minima: " + QString::number(igrometro.getMin()) + " %");
+
+    massima=("Umidità massima: " + QString::number(igrometro.getMax()) + " %");
 
 }
 
 void SensorInfoVisitor::visitLuxometro(Luxometro &luxometro){
+    /*
     QVBoxLayout* layout= new QVBoxLayout();
     layout->setAlignment(Qt::AlignLeft | Qt::AlignTop);
 
     QLabel* min_label= new QLabel();
-    min_label->setText("Illuminamento massimo: " + QString::number(luxometro.getMin()) + " LUX"); //cercare come approssimare a 2 dopo la virgola
+    min_label->setText("Illuminamento minimo: " + QString::number(luxometro.getMin()) + " LUX"); //cercare come approssimare a 2 dopo la virgola
     layout-> addWidget(min_label);
 
     QLabel* max_label= new QLabel();
-    max_label->setText("Illuminamento minimo: " + QString::number(luxometro.getMax()) + " LUX"); //cercare come approssimare a 2 dopo la virgola
+    max_label->setText("Illuminamento massimo: " + QString::number(luxometro.getMax()) + " LUX"); //cercare come approssimare a 2 dopo la virgola
     layout-> addWidget(max_label);
 
     widget=new QWidget;
     widget->setLayout(layout);
+    */
+    minima=("Illuminamento minimo: " + QString::number(luxometro.getMin()) + " LUX");
+
+    massima=("Illuminamento massimo: " + QString::number(luxometro.getMax()) + " LUX");
 }

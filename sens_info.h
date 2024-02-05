@@ -3,10 +3,12 @@
 
 #include <QWidget>
 #include <QLabel>
-#include <QObject>
+#include <QVBoxLayout>
 
 #include "sensore.h"
 #include "sensorinfovisitor.h"
+
+
 
 
 class term_blocco;
@@ -14,16 +16,16 @@ class term_blocco;
 class Sens_info : public QWidget, public SensorObserverInterface{
     Q_OBJECT
 private:
-    Sensore* InfoSensore;
-    term_blocco* tBlocco;
     QLabel* name_label;
+    QLabel* max;
+    QLabel* min;
+    QVBoxLayout *layout;
 
 public:
-    Sens_info( Sensore* =0, QWidget *parent = nullptr);
+    Sens_info( QWidget *parent = nullptr);
     void notify ( Sensore & sensore ) override ;
+    void clear();
 
-
-    /*void setInfo(char * serra, char* test, char* max, char *min);/////////*/
 public slots:
     void visualizza(Sensore *);
 

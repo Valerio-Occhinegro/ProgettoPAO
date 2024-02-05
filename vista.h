@@ -21,7 +21,7 @@ class Vista: public QWidget{
     Q_OBJECT
 private:
     //per vedere se funziona
-    Sensore* sensTest= new Luxometro("test");
+    //Sensore* sensTest= new Luxometro("test");
     //std::vector<const Sensore*> *sensori;
     //
     Sens_info *info;

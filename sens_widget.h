@@ -9,7 +9,7 @@
 
 #include "sensore.h"
 #include "serra.h"
-#include "sens_info.h"
+
 
 
 

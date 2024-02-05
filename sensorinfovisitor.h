@@ -10,10 +10,15 @@
 class SensorInfoVisitor : public SensorVisitorInterface{
 private:
     QWidget * widget;
+    QString minima;
+    QString massima;
 
 public:
 
     QWidget* getWidget();
+    QString  getMin();
+    QString  getMax();
+
     void visitTermometro(Termometro & termometro) override;
     void visitIgrometro(Igrometro & igrometro) override;
     void visitLuxometro(Luxometro & luxometro) override;

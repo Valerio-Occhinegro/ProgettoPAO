@@ -1,6 +1,5 @@
 #include "sens_widget.h"
-#include "sens_info.h"
-#include "vista.h"
+
 
 
 #include <QInputDialog>

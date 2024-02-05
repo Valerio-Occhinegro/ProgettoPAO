@@ -19,10 +19,10 @@ Vista::Vista(Serra *serra, QWidget *parent): QWidget(parent) {
     addDownLayout(serra);
 
     setLayout(mainLayout);
-    //connect(termometri, &term_blocco::mostra_sensore, info, &Sens_info::visualizza);
-    //connect(bVisualizza, &QPushButton::pressed, std::bind(&Sens_info::visualizza, this, sensore));
-    // connetto il segnale di sens blocco allo slot di sens_info
+
     connect(termometri, &term_blocco::visualizza, this, &Vista::visualizza);
+    connect(igrometri, &Igro_blocco::visualizza, this, &Vista::visualizza);
+    connect(luxometri, &Lux_blocco::visualizza, this, &Vista::visualizza);
 }
 
 void Vista::visualizza(Sensore* s) {
@@ -34,7 +34,7 @@ void Vista::addUpLayout(){
     Serra_widget *serra= new Serra_widget();
     upLayout->addWidget(serra);
 
-    info= new Sens_info(sensTest);///////////il sens test viene passato qui
+    info= new Sens_info();///////////il sens test viene passato qui
     upLayout->addWidget(info);
 
     mainLayout->addLayout(upLayout);
