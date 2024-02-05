@@ -9,19 +9,19 @@
 class Serra{
 private:
     std::string name;
-    std::vector<const Sensore*> sensori;
+    std::vector<Sensore*> sensori;
     unsigned short size;    // vettore che conterrà tutti i sensori presenti in una serra
 public:
     Serra(std::string);
     ~Serra();
-    const std::vector<const Sensore*>& getSensori()const;
-    void addSensore(const Sensore *);
+    std::vector<Sensore*>& getSensori();
+    void addSensore(Sensore *);
     void print() const;
 
 
     unsigned short getSize() const;
-    void insert(const Sensore*);
-    void remove(const Sensore*);
+    void insert(Sensore*);
+    void remove(Sensore*);
     void destroy();
 
 };

@@ -3,16 +3,19 @@
 
 #include <QWidget>
 #include <QLabel>
+#include <QObject>
 
 #include "sensore.h"
 #include "sensorinfovisitor.h"
 
 
+class term_blocco;
 
 class Sens_info : public QWidget, public SensorObserverInterface{
     Q_OBJECT
 private:
-    const Sensore* InfoSensore;
+    Sensore* InfoSensore;
+    term_blocco* tBlocco;
     QLabel* name_label;
 
 public:
@@ -22,6 +25,7 @@ public:
 
     /*void setInfo(char * serra, char* test, char* max, char *min);/////////*/
 public slots:
+    void visualizza(Sensore *);
 
 };
 

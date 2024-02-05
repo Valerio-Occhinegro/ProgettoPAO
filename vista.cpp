@@ -1,8 +1,5 @@
 #include "vista.h"
 #include "serra_widget.h"
-#include "term_blocco.h"
-#include "igro_blocco.h"
-#include "lux_blocco.h"
 
 
 #include <QMenuBar>
@@ -22,6 +19,14 @@ Vista::Vista(Serra *serra, QWidget *parent): QWidget(parent) {
     addDownLayout(serra);
 
     setLayout(mainLayout);
+    //connect(termometri, &term_blocco::mostra_sensore, info, &Sens_info::visualizza);
+    //connect(bVisualizza, &QPushButton::pressed, std::bind(&Sens_info::visualizza, this, sensore));
+    // connetto il segnale di sens blocco allo slot di sens_info
+    connect(termometri, &term_blocco::visualizza, this, &Vista::visualizza);
+}
+
+void Vista::visualizza(Sensore* s) {
+    info->visualizza(s);
 }
 
 
@@ -36,13 +41,13 @@ void Vista::addUpLayout(){
 }
 
 void Vista::addDownLayout(Serra *serra){
-    term_blocco *termometri=new term_blocco(serra);
+    termometri=new term_blocco(serra);
     downLayout->addWidget(termometri);
 
-    Igro_blocco *igrometri= new Igro_blocco(serra);
+    igrometri= new Igro_blocco(serra);
     downLayout->addWidget(igrometri);
 
-    Lux_blocco *luxometri= new Lux_blocco(serra);
+    luxometri= new Lux_blocco(serra);
     downLayout->addWidget(luxometri);
 
     mainLayout->addLayout(downLayout);

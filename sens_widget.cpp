@@ -1,11 +1,12 @@
 #include "sens_widget.h"
 #include "sens_info.h"
+#include "vista.h"
 
 
 #include <QInputDialog>
 #include <QMessageBox>
 
-sens_widget::sens_widget(const Sensore * sensore,Serra* serra, QWidget *parent/*, const Sens_info* display*/): QWidget(parent), sensore(sensore), serra(serra){
+sens_widget::sens_widget(Sensore * sensore,Serra* serra, QWidget *parent): QWidget(parent), sensore(sensore), serra(serra){
 
     layout_sens= new QHBoxLayout(this);
     layout_sens->setAlignment(Qt::AlignLeft | Qt::AlignTop);
@@ -14,12 +15,8 @@ sens_widget::sens_widget(const Sensore * sensore,Serra* serra, QWidget *parent/*
     bVisualizza->setSizePolicy(QSizePolicy::Fixed,QSizePolicy::Fixed);
     bVisualizza->setText(QString::fromStdString(sensore->getName()));
     layout_sens-> addWidget(bVisualizza);
-    //connect(bVisualizza, &QPushButton::pressed, this, &sens_widget::visualizza);
 
-    /*connect(visualizza, &QPushButton::pressed,/////////
-            [&display,this](){
-        display->setInfo(this->serra, this->sensore);
-            }*/
+    connect(bVisualizza, &QPushButton::pressed, std::bind(&sens_widget::mostra, this,sensore));
 
 
     bModifica = new QPushButton("modifica");
@@ -48,7 +45,7 @@ void sens_widget::elimina(){
 
 
 
-const Sensore * sens_widget::getSens()const{
+Sensore * sens_widget::getSens()const{
     return sensore;
 }
 

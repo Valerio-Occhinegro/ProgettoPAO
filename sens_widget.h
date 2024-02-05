@@ -18,7 +18,7 @@ class sens_widget : public QWidget{
     Q_OBJECT
 
 private:
-    const Sensore* sensore;
+    Sensore* sensore;
     Serra* serra;
 
     QHBoxLayout* layout_sens;
@@ -27,16 +27,13 @@ private:
     QPushButton* bElimina;
 
 public:
-    sens_widget(const Sensore * , Serra* , QWidget *parent = nullptr);
+    sens_widget(Sensore * , Serra* , QWidget *parent = nullptr);
     void elimina();
-    const Sensore* getSens()const;
-    void modifica();// modifica il nome del sens_widget
+    Sensore* getSens()const;
+    void modifica();// modifica il nome del sens_widget e del sensore
     void visualizza();
 signals:
-
-    //fallita, probabilmente da ristudiare in toto
-    // fa visualizzare il sensore in sens_info, creo un oggetto sens_info nella funzione e lo passo di copia a vista
-        // vista dovrà avere una funzione set_info
+    void mostra(Sensore* );
 
 };
 
