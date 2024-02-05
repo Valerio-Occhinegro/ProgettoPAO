@@ -34,6 +34,7 @@ void Sens_info::visualizza(Sensore* s){
     //modifico il visitor in maniera tale che mi riporti i nomi invece del widget intero
     min->setText(visitor.getMin());
     max->setText(visitor.getMax());
+
     s->registerObserver(this);
 
 

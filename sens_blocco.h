@@ -12,8 +12,7 @@
 
 class Sens_blocco : public QWidget{
     Q_OBJECT
-private:
-    QLabel* titolo;//il titolo del blocco rappresenta la tipologia di sensori contenuti al suo interno
+protected:
     QVBoxLayout* layout_blocco;
     QVBoxLayout* layout_sens;
     sens_widget* sWidget;
@@ -21,7 +20,6 @@ private:
     Serra * serra;
 public:
     Sens_blocco(Serra *serra, QWidget *parent = nullptr); //riferimento al container di sensori di serra
-    void setTitolo(QString & );
     void addLayoutSens();
     Sensore * getSensore();
 
@@ -32,7 +30,7 @@ signals:
 
 
 public slots:
-    void aggiungi();// aggiunge un nuovo sens_widget->forse è meglio farlo in ogni blocco specializzato
+    virtual void aggiungi()=0;// aggiunge un nuovo sens_widget->forse è meglio farlo in ogni blocco specializzato
 
 
 

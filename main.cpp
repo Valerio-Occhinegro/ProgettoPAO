@@ -15,15 +15,30 @@ int main(int argc, char *argv[]){
     Sensore * secondo=new Igrometro("Giolitti");
     Sensore * terzo=new Luxometro("De Gasperi");
 
-    Serra *quinto=new Serra("fattoria Piave");
+    Sensore * quarto=new Termometro("Andreotti");
+    Sensore * quinto=new Igrometro("Matteotti");
+    Sensore * sesto=new Luxometro("Moro");
 
-    quinto->addSensore(primo);
-    quinto->addSensore(secondo);
-    quinto->addSensore(terzo);
+    Sensore * settimo=new Termometro("Craxi");
+    Sensore * ottavo=new Igrometro("Mattarella");
+    Sensore * nono=new Luxometro("Napolitano");
 
+    Serra *serra=new Serra("fattoria Piave");
+
+    serra->addSensore(primo);
+    serra->addSensore(secondo);
+    serra->addSensore(terzo);
+
+    serra->addSensore(quarto);
+    serra->addSensore(quinto);
+    serra->addSensore(sesto);
+
+    serra->addSensore(settimo);
+    serra->addSensore(ottavo);
+    serra->addSensore(nono);
 
     //vista
-    MainWindow w(quinto);
+    MainWindow w(serra);
     w.show();
     return a.exec();
 

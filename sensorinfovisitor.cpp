@@ -3,9 +3,10 @@
 #include "igrometro.h"
 #include "luxometro.h"
 
-QWidget *SensorInfoVisitor::getWidget(){
+/*QWidget *SensorInfoVisitor::getWidget(){
     return widget;
 }
+*/
 
 QString SensorInfoVisitor::getMin(){
     return minima;
@@ -37,6 +38,7 @@ void SensorInfoVisitor::visitTermometro(Termometro & termometro){
     minima=("Temperatura minima: " + QString::number(termometro.getMin()) + " C°");
 
     massima=("Temperatura massima: " + QString::number(termometro.getMax()) + " C°" );
+
 }
 
 void SensorInfoVisitor::visitIgrometro(Igrometro &igrometro){
@@ -61,6 +63,7 @@ void SensorInfoVisitor::visitIgrometro(Igrometro &igrometro){
 
     massima=("Umidità massima: " + QString::number(igrometro.getMax()) + " %");
 
+
 }
 
 void SensorInfoVisitor::visitLuxometro(Luxometro &luxometro){
@@ -82,4 +85,5 @@ void SensorInfoVisitor::visitLuxometro(Luxometro &luxometro){
     minima=("Illuminamento minimo: " + QString::number(luxometro.getMin()) + " LUX");
 
     massima=("Illuminamento massimo: " + QString::number(luxometro.getMax()) + " LUX");
+
 }

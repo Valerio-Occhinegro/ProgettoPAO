@@ -6,6 +6,7 @@
 class Lux_blocco : public Sens_blocco{
 public:
     Lux_blocco(Serra* serra, QWidget *parent= nullptr);
+    void aggiungi()override;
 };
 
 #endif // LUX_BLOCCO_H

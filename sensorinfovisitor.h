@@ -5,17 +5,18 @@
 #include <QLabel>
 #include <QVBoxLayout>
 #include <QHBoxLayout>
+
 #include "sensorvisitorinterface.h"
 
 class SensorInfoVisitor : public SensorVisitorInterface{
 private:
-    QWidget * widget;
+    //QWidget * widget;
     QString minima;
     QString massima;
 
 public:
+    //QWidget* getWidget();
 
-    QWidget* getWidget();
     QString  getMin();
     QString  getMax();
 
