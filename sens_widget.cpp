@@ -25,6 +25,7 @@ sens_widget::sens_widget(Sensore * sensore,Serra* serra, QWidget *parent): QWidg
 
     bElimina = new QPushButton("elimina");
     bElimina->setSizePolicy(QSizePolicy::Fixed,QSizePolicy::Fixed);
+
     layout_sens-> addWidget(bElimina);
     connect(bElimina, &QPushButton::pressed, this, &sens_widget::elimina);
 

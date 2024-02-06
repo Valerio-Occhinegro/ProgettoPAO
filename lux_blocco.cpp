@@ -46,6 +46,10 @@ Lux_blocco::Lux_blocco(Serra* serra, QWidget *parent) : Sens_blocco(serra, paren
 
     scrollArea->setWidget(scrollLayout);
 
+    scrollArea->setMinimumHeight(100);
+
+    scrollArea->setMinimumWidth(350);
+
     layout_blocco->addWidget(scrollArea);
 
 

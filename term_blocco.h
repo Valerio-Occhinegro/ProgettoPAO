@@ -5,7 +5,7 @@
 #include "serra.h"
 
 
-class term_blocco : public Sens_blocco{
+class term_blocco : public Sens_blocco{    
 public:
     term_blocco(Serra * serra, QWidget *parent= nullptr);
 

@@ -29,7 +29,7 @@ private:
 
 
     QList<QPointF> dati;
-    QSplineSeries * series;
+    QLineSeries * series;
     QChart * chart;
     QChartView *chartView;
 

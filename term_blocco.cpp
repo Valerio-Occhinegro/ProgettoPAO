@@ -41,7 +41,6 @@ term_blocco::term_blocco(Serra * serra, QWidget *parent) : Sens_blocco(serra, pa
 
     }
 
-    //serve un modo per fare il refresh ogni volta che aggiungo un sens_widget(observer???)
     QScrollArea *scrollArea = new QScrollArea;
     QWidget *scrollLayout= new QWidget;
 
@@ -51,12 +50,17 @@ term_blocco::term_blocco(Serra * serra, QWidget *parent) : Sens_blocco(serra, pa
 
     scrollArea->setWidget(scrollLayout);
 
+    scrollArea->setMinimumHeight(100);
+
+    scrollArea->setMinimumWidth(350);
+
     layout_blocco->addWidget(scrollArea);
 
 
     QPushButton* nuovo = new QPushButton("nuovo");
     layout_blocco-> addWidget(nuovo);
     connect(nuovo, &QPushButton::pressed, this, &Sens_blocco::aggiungi);
+
 }
 
 void term_blocco::aggiungi(){

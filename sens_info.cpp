@@ -33,8 +33,8 @@ Sens_info::Sens_info( QWidget *parent): QWidget(parent){
     mainLayout->addLayout(layout);
 
     ///////////////GRAFICO///////////////
-    series = new QSplineSeries;
-    series->setName("Spline");
+    series = new QLineSeries;
+    series->setName("Line");
     series->append(dati);
 
 
@@ -81,8 +81,8 @@ void Sens_info::visualizza(Sensore* s){
     delete series; delete chart; delete chartView;
     dati=visitor.getValori();
 
-    series = new QSplineSeries;
-    series->setName("Spline");
+    series = new QLineSeries;
+    series->setName("Line");
 
     series->append(dati);
 
@@ -94,12 +94,14 @@ void Sens_info::visualizza(Sensore* s){
     chart->createDefaultAxes();
     QValueAxis *axisX=new QValueAxis;
     axisX->setRange(0,23);
-    axisX->setTickCount(23);
+    axisX->setTickCount(24);
     chart->addAxis(axisX,Qt::AlignBottom);
 
 
 
     chartView = new QChartView(chart);
+    chartView->setMinimumHeight(200);
+    chartView->setMinimumWidth(500);
 
     mainLayout->addWidget(chartView);
 
@@ -118,16 +120,14 @@ void Sens_info::ricalcola(){
     SensorInfoVisitor visitor;
     sensore->accept(visitor);
 
-    //layout->addWidget(visitor.getWidget());
-    //modifico il visitor in maniera tale che mi riporti i nomi invece del widget intero
     min->setText(visitor.getMin());
     max->setText(visitor.getMax());
 
     delete series; delete chart; delete chartView;
     dati=visitor.getValori();
 
-    series = new QSplineSeries;
-    series->setName("Spline");
+    series = new QLineSeries;
+    series->setName("Line");
 
     series->append(dati);
 
@@ -139,12 +139,13 @@ void Sens_info::ricalcola(){
     chart->createDefaultAxes();
     QValueAxis *axisX=new QValueAxis;
     axisX->setRange(0,23);
-    axisX->setTickCount(23);
+    axisX->setTickCount(24);
     chart->addAxis(axisX,Qt::AlignBottom);
 
-
-
     chartView = new QChartView(chart);
+    chartView->setMinimumHeight(200);
+    chartView->setMinimumWidth(500);
+
 
     mainLayout->addWidget(chartView);
 

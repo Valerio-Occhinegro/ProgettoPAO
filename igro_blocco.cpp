@@ -47,6 +47,10 @@ Igro_blocco::Igro_blocco(Serra* serra, QWidget *parent) : Sens_blocco(serra, par
 
     scrollArea->setWidget(scrollLayout);
 
+    scrollArea->setMinimumHeight(100);
+
+    scrollArea->setMinimumWidth(350);
+
     layout_blocco->addWidget(scrollArea);
 
 
