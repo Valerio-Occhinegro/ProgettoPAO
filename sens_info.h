@@ -47,7 +47,7 @@ public:
 public slots:
     void visualizza(Sensore *);
     void ricalcola();
-    void cancel();
+    void cancel(Sensore *);
 
 };
 

@@ -109,9 +109,6 @@ void Sens_info::visualizza(Sensore* s){
 
 void Sens_info::ricalcola(){
 
-
-
-
     sensore->sensRicalcola();
 
     name_label->setText(QString::fromStdString(sensore->getName()));
@@ -155,12 +152,14 @@ void Sens_info::ricalcola(){
 
 }
 
-void Sens_info::cancel(){
+void Sens_info::cancel(Sensore *s){
+    if(sensore==s){
     chartView->hide();
     name_label->hide();
     min->hide();
     max->hide();
     bRicalcola->hide();
+    }
 }
 
 

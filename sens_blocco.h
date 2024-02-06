@@ -28,7 +28,7 @@ signals:
 
     void visualizza(Sensore*);
 
-    void elimina();
+    void elimina(Sensore *);
 
 
 public slots:

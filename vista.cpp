@@ -33,8 +33,8 @@ void Vista::visualizza(Sensore* s) {
     info->visualizza(s);
 }
 
-void Vista::eliminaSI(){
-    info->cancel();
+void Vista::eliminaSI(Sensore *s){
+    info->cancel(s);
 }
 
 

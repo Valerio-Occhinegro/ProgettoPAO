@@ -37,7 +37,8 @@ void sens_widget::elimina(){
     conferma.setDefaultButton(QMessageBox::Ok);
     int ret = conferma.exec();
     if(ret==QMessageBox::Ok){
-        emit eliminaInfo();
+        //std::bind(&sens_widget::eliminaInfo, this,sensore);
+        emit eliminaInfo(sensore);
         serra->remove(this->sensore);
         delete this;
     }
