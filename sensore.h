@@ -36,9 +36,12 @@ public:
     void setMax();
     void setMeasure();
     void setName(std::string &);
+
+    void sensRicalcola();
     virtual std::vector<double> calcMeasure()=0;
     virtual void accept(SensorVisitorInterface & visitor) = 0;
     void registerObserver (SensorObserverInterface * obs);
+
 };
 
 #endif // SENSORE_H

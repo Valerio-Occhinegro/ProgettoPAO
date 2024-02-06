@@ -23,10 +23,18 @@ Vista::Vista(Serra *serra, QWidget *parent): QWidget(parent) {
     connect(termometri, &term_blocco::visualizza, this, &Vista::visualizza);
     connect(igrometri, &Igro_blocco::visualizza, this, &Vista::visualizza);
     connect(luxometri, &Lux_blocco::visualizza, this, &Vista::visualizza);
+    //connetto il tasto elimina allo slot elimina di info
+    connect(termometri, &term_blocco::elimina, this, &Vista::eliminaSI);
+    connect(igrometri, &Igro_blocco::elimina, this, &Vista::eliminaSI);
+    connect(luxometri, &Lux_blocco::elimina, this, &Vista::eliminaSI);
 }
 
 void Vista::visualizza(Sensore* s) {
     info->visualizza(s);
+}
+
+void Vista::eliminaSI(){
+    info->cancel();
 }
 
 

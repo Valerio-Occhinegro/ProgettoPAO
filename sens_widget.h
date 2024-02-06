@@ -34,6 +34,7 @@ public:
     void visualizza();
 signals:
     void mostra(Sensore* );
+    void eliminaInfo();
 
 };
 

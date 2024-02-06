@@ -42,6 +42,7 @@ public:
     //Ui::MainWindow *ui;
 public slots:
     void visualizza(Sensore *);
+    void eliminaSI();
 };
 
 #endif // VISTA_H

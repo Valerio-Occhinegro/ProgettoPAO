@@ -76,6 +76,15 @@ void Sensore::setName(std::string & n){
     }
 }
 
+void Sensore::sensRicalcola(){
+    measure=calcMeasure();
+    for ( auto observer = observers.begin(); observer != observers.end(); observer++){
+        (*observer)->notify(*this);
+    }
+    setMin();
+    setMax();
+}
+
 void Sensore::registerObserver(SensorObserverInterface *obs){
     observers.push_back(obs);
 }

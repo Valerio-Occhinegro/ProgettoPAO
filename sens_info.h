@@ -23,11 +23,16 @@ private:
     QLabel* name_label;
     QLabel* max;
     QLabel* min;
+    QPushButton * bRicalcola;
+    Sensore *sensore;
+
+
 
     QList<QPointF> dati;
     QSplineSeries * series;
     QChart * chart;
     QChartView *chartView;
+
 
     QHBoxLayout *mainLayout;
     QVBoxLayout *layout;
@@ -37,8 +42,12 @@ public:
     void notify ( Sensore & sensore ) override ;
     void clear();
 
+
+
 public slots:
     void visualizza(Sensore *);
+    void ricalcola();
+    void cancel();
 
 };
 

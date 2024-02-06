@@ -28,6 +28,8 @@ signals:
 
     void visualizza(Sensore*);
 
+    void elimina();
+
 
 public slots:
     virtual void aggiungi()=0;// aggiunge un nuovo sens_widget->forse è meglio farlo in ogni blocco specializzato

@@ -33,6 +33,7 @@ Igro_blocco::Igro_blocco(Serra* serra, QWidget *parent) : Sens_blocco(serra, par
             layout_sens->addWidget(elemento);
 
             connect(elemento, &sens_widget::mostra, this, &Sens_blocco::visualizza);
+            connect(elemento, &sens_widget::eliminaInfo, this, &Sens_blocco::elimina);
         }
     }
 
@@ -65,6 +66,7 @@ void Igro_blocco::aggiungi(){
         el=new sens_widget(nuovo,serra,this);
 
         connect(el, &sens_widget::mostra, this, &Sens_blocco::visualizza);
+        connect(el, &sens_widget::eliminaInfo, this, &Sens_blocco::elimina);
 
 
         serra->insert(nuovo);
