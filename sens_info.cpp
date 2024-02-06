@@ -5,8 +5,13 @@
 
 
 
+
+
+
 Sens_info::Sens_info( QWidget *parent): QWidget(parent){
-    layout= new QVBoxLayout(this);
+    mainLayout=new QHBoxLayout(this);
+
+    layout= new QVBoxLayout();
     layout->setAlignment(Qt::AlignLeft | Qt::AlignTop);
 
     name_label= new QLabel();
@@ -17,6 +22,29 @@ Sens_info::Sens_info( QWidget *parent): QWidget(parent){
 
     min=new QLabel();
     layout-> addWidget(min);
+
+    mainLayout->addLayout(layout);
+
+    //////////////////////////////
+    series = new QSplineSeries;
+    series->setName("Spline");
+    series->append(dati);
+
+
+    chart = new QChart;
+    chart->legend()->hide();
+    chart->addSeries(series);
+    chart->setTitle("Misurazioni");
+    chart->createDefaultAxes();
+
+
+
+    chartView = new QChartView(chart);
+    chartView->hide();
+
+    mainLayout->addWidget(chartView);
+    /// ///////////////////////////
+
 
 }
 
@@ -35,8 +63,32 @@ void Sens_info::visualizza(Sensore* s){
     min->setText(visitor.getMin());
     max->setText(visitor.getMax());
 
-    s->registerObserver(this);
+    delete series; delete chart; delete chartView;
+    dati=visitor.getValori();
 
+    series = new QSplineSeries;
+    series->setName("Spline");
+
+    series->append(dati);
+
+    chart = new QChart;
+    chart->legend()->hide();
+    chart->addSeries(series);
+    chart->setTitle("Misurazioni");
+
+    chart->createDefaultAxes();
+    QValueAxis *axisX=new QValueAxis;
+    axisX->setRange(0,23);
+    axisX->setTickCount(23);
+    chart->addAxis(axisX,Qt::AlignBottom);
+
+
+
+    chartView = new QChartView(chart);
+
+    mainLayout->addWidget(chartView);
+
+    s->registerObserver(this);
 
 }
 

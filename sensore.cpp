@@ -44,7 +44,7 @@ double Sensore::getMeanMax() const{
     return meanMax;
 }
 
-std::vector<double> Sensore::getMeasure() const{
+std::vector<double>Sensore::getMeasure() const{
     return measure;
 }
 

@@ -4,6 +4,10 @@
 #include <QWidget>
 #include <QLabel>
 #include <QVBoxLayout>
+#include <QHBoxLayout>
+#include <QPointF>
+#include <QList>
+#include <QtCharts/QtCharts>
 
 #include "sensore.h"
 #include "sensorinfovisitor.h"
@@ -19,6 +23,13 @@ private:
     QLabel* name_label;
     QLabel* max;
     QLabel* min;
+
+    QList<QPointF> dati;
+    QSplineSeries * series;
+    QChart * chart;
+    QChartView *chartView;
+
+    QHBoxLayout *mainLayout;
     QVBoxLayout *layout;
 
 public:
