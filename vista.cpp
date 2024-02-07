@@ -14,7 +14,7 @@ Vista::Vista(Serra *serra, QWidget *parent): QWidget(parent) {
 
     downLayout= new QHBoxLayout(this);
 
-    addUpLayout();
+    addUpLayout(serra);
 
     addDownLayout(serra);
 
@@ -23,10 +23,15 @@ Vista::Vista(Serra *serra, QWidget *parent): QWidget(parent) {
     connect(termometri, &term_blocco::visualizza, this, &Vista::visualizza);
     connect(igrometri, &Igro_blocco::visualizza, this, &Vista::visualizza);
     connect(luxometri, &Lux_blocco::visualizza, this, &Vista::visualizza);
+
+    //connetto la searchBar al sensInfo
+    connect(serraW, &Serra_widget::visualizza,this,&Vista::visualizza);
+
     //connetto il tasto elimina allo slot elimina di info
     connect(termometri, &term_blocco::elimina, this, &Vista::eliminaSI);
     connect(igrometri, &Igro_blocco::elimina, this, &Vista::eliminaSI);
     connect(luxometri, &Lux_blocco::elimina, this, &Vista::eliminaSI);
+
 }
 
 void Vista::visualizza(Sensore* s) {
@@ -38,11 +43,13 @@ void Vista::eliminaSI(Sensore *s){
 }
 
 
-void Vista::addUpLayout(){
-    Serra_widget *serra= new Serra_widget();
-    upLayout->addWidget(serra);
+void Vista::addUpLayout(Serra *serra){
+    serraW= new Serra_widget(serra);
+    serraW->setMaximumWidth(200);
+    upLayout->addWidget(serraW);
 
-    info= new Sens_info();///////////il sens test viene passato qui
+    info= new Sens_info();
+    info->setMinimumWidth(800);
     upLayout->addWidget(info);
 
     mainLayout->addLayout(upLayout);

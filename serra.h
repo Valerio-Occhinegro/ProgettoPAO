@@ -16,6 +16,7 @@ public:
     ~Serra();
     std::vector<Sensore*>& getSensori();
     void addSensore(Sensore *);
+    Sensore * search(std::string);
     void print() const;
 
 

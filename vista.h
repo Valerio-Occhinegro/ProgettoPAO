@@ -16,6 +16,7 @@
 
 #include "sens_info.h"
 #include "serra.h"
+#include "serra_widget.h"
 
 class Vista: public QWidget{
     Q_OBJECT
@@ -24,6 +25,7 @@ private:
     //Sensore* sensTest= new Luxometro("test");
     //std::vector<const Sensore*> *sensori;
     //
+    Serra_widget *serraW;
     Sens_info *info;
     term_blocco *termometri;
     Igro_blocco *igrometri;
@@ -35,7 +37,7 @@ private:
 public:
     Vista(Serra *serra,QWidget *parent = nullptr);
 
-    void addUpLayout();
+    void addUpLayout(Serra *serra);
     void addDownLayout(Serra *serra);
 
     //private:

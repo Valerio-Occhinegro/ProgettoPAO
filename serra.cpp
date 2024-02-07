@@ -16,6 +16,20 @@ void Serra::addSensore(Sensore *s){
     std::cout<<"inserito"<<std::endl;
 }
 
+Sensore * Serra::search(std::string inserita){
+    Sensore * ritorno;
+    bool find=false;
+    for(std::vector<Sensore *>::const_iterator it = sensori.begin(); it!= sensori.end() && find==false; ++it){
+        if(inserita == (*it)->getName()){
+            ritorno=(*it);
+            find=true;
+        }
+        else
+            ritorno= nullptr;
+    }
+    return ritorno;
+}//////////////////////////////////
+
 unsigned short Serra::getSize() const{
     return sensori.size();
 }
