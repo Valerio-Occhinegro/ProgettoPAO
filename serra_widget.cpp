@@ -87,10 +87,14 @@ void Serra_widget::generate(){
 }
 
 void Serra_widget::cancel(Sensore * s){
-    for(auto it = listaNomi->begin(); it!= listaNomi->end(); ++it){
-        if(s->getName()==(*it).toStdString())
+    bool flag=false;
+    for(auto it = listaNomi->begin(); it!= listaNomi->end() && flag==false; ++it){
+        if(s->getName()==(*it).toStdString()){
             listaNomi->erase(it);
+            flag=true;
+        }
     }
+    if(flag==true)
     populate();
 }
 

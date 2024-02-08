@@ -23,6 +23,9 @@ int main(int argc, char *argv[]){
     Sensore * ottavo=new Igrometro("Mattarella");
     Sensore * nono=new Luxometro("Napolitano");
 
+    Sensore * decimo=new Luxometro("Beppo");
+    Sensore * undicesimo=new Igrometro("Levi");
+
     Serra *serra=new Serra("fattoria Piave");
 
     serra->addSensore(primo);
@@ -36,6 +39,9 @@ int main(int argc, char *argv[]){
     serra->addSensore(settimo);
     serra->addSensore(ottavo);
     serra->addSensore(nono);
+
+    serra->addSensore(decimo);
+    serra->addSensore(undicesimo);
 
     //vista
     MainWindow w(serra);
