@@ -62,6 +62,13 @@ Sensore *Sens_blocco::getSensore(){
     return sensore;
 }
 
+bool Sens_blocco::controllaNomi(std::string str){
+        if(serra->controlla(str)==true)
+            return true;
+        else
+            return false;
+}
+
 
 
 

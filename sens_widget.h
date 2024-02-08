@@ -32,9 +32,12 @@ public:
     Sensore* getSens()const;
     void modifica();// modifica il nome del sens_widget e del sensore
     void visualizza();
+
+    bool controllaNomi(std::string);
 signals:
     void mostra(Sensore* );
     void eliminaInfo(Sensore*);
+    void modify(Sensore*, QString);
 
 };
 

@@ -19,6 +19,7 @@ public:
     Sensore * search(std::string);
     void print() const;
 
+    bool controlla(std::string);
 
     unsigned short getSize() const;
     void insert(Sensore*);

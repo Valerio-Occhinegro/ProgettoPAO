@@ -45,6 +45,8 @@ public:
 public slots:
     void visualizza(Sensore *);
     void eliminaSI(Sensore *);
+    void add(Sensore *);
+    void modify(Sensore *, QString);
 };
 
 #endif // VISTA_H

@@ -32,6 +32,15 @@ Vista::Vista(Serra *serra, QWidget *parent): QWidget(parent) {
     connect(igrometri, &Igro_blocco::elimina, this, &Vista::eliminaSI);
     connect(luxometri, &Lux_blocco::elimina, this, &Vista::eliminaSI);
 
+    //Quando eseguo un'eliminazione il completer viene aggiornato
+
+    connect(termometri, &Lux_blocco::modify, this, &Vista::modify);
+    connect(igrometri, &Lux_blocco::modify, this, &Vista::modify);
+    connect(luxometri, &Lux_blocco::modify, this, &Vista::modify);
+
+    connect(termometri, &Lux_blocco::add, this, &Vista::add);
+    connect(igrometri, &Lux_blocco::add, this, &Vista::add);
+    connect(luxometri, &Lux_blocco::add, this, &Vista::add);
 }
 
 void Vista::visualizza(Sensore* s) {
@@ -40,6 +49,18 @@ void Vista::visualizza(Sensore* s) {
 
 void Vista::eliminaSI(Sensore *s){
     info->cancel(s);
+    serraW->cancel(s);
+}
+
+void Vista::add(Sensore * s){
+    serraW->add(s);
+
+
+}
+
+void Vista::modify(Sensore * s, QString n){
+    serraW->modify(s,n);
+
 }
 
 

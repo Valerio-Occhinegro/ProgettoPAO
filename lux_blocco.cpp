@@ -33,6 +33,8 @@ Lux_blocco::Lux_blocco(Serra* serra, QWidget *parent) : Sens_blocco(serra, paren
 
             connect(elemento, &sens_widget::mostra, this, &Sens_blocco::visualizza);
             connect(elemento, &sens_widget::eliminaInfo, this, &Sens_blocco::elimina);
+
+            connect(elemento,&sens_widget::modify,this,&Sens_blocco::modify);
         }
     }
 
@@ -64,19 +66,23 @@ void Lux_blocco::aggiungi(){
     QString nome = dialog.getText(this, tr("Creazione luxometro"),tr("Nome luxometro:"), QLineEdit::Normal);
     Sensore *nuovo;
     sens_widget *el;
-    if(nome!="" && nome.size()<=18){//se non do un nome al sensore, il sens widget non viene creato
+    if(nome!="" && nome.size()<=18 && controllaNomi(nome.toStdString())==false){//se non do un nome al sensore, il sens widget non viene creato
         nuovo=new Luxometro(nome.toStdString());
         el=new sens_widget(nuovo,serra,this);
 
         connect(el, &sens_widget::mostra, this, &Sens_blocco::visualizza);
         connect(el, &sens_widget::eliminaInfo, this, &Sens_blocco::elimina);
 
+        connect(el,&sens_widget::modify,this,&Sens_blocco::modify);
 
         serra->insert(nuovo);
         layout_sens->addWidget(el);
+        emit add(nuovo);
     }
     else if(nome.size()>18)
         QMessageBox::warning(this, tr("Problema in input"), tr("il nome deve avere una dimensione inferiore a 19 caratteri"));
+    else if(controllaNomi(nome.toStdString())==true)
+        QMessageBox::warning(this, tr("Problema in input"), tr("i sensori devono avere nomi differenti"));
 
 
 }

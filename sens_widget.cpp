@@ -38,7 +38,6 @@ void sens_widget::elimina(){
     conferma.setDefaultButton(QMessageBox::Ok);
     int ret = conferma.exec();
     if(ret==QMessageBox::Ok){
-        //std::bind(&sens_widget::eliminaInfo, this,sensore);
         emit eliminaInfo(sensore);
         serra->remove(this->sensore);
         delete this;
@@ -56,13 +55,24 @@ void sens_widget::modifica(){
     dialog.setCancelButtonText("annulla");
     QString nome = dialog.getText(this, tr("modifica sensore"),tr("cambia il nome:"), QLineEdit::Normal);
     std::string conversion=nome.toStdString();
-    if(nome!="" && conversion.size()<=18){//se non do un nome al sensore, il sens widget non viene creato
-        const_cast<Sensore*>(sensore)->setName(conversion);
+    if(nome!="" && conversion.size()<=18 && controllaNomi(conversion)==false){//se non do un nome al sensore, il sens widget non viene creato
+        emit modify(sensore, nome);
+        sensore->setName(conversion);
         bVisualizza->setText(QString::fromStdString(sensore->getName()));
+
     }
     else if(conversion.size()>18)
         QMessageBox::warning(this, tr("Problema in input"), tr("il nome deve avere una dimensione inferiore a 19 caratteri"));
+    else if(controllaNomi(conversion)==true)
+        QMessageBox::warning(this, tr("Problema in input"), tr("i sensori devono avere nomi differenti"));
 
+}
+
+bool sens_widget::controllaNomi(std::string str){
+    if(serra->controlla(str)==true)
+        return true;
+    else
+        return false;
 }
 
 

@@ -46,6 +46,19 @@ void Serra::print()const{
 
 }
 
+bool Serra::controlla(std::string inserita){
+    bool find=false;
+    for(std::vector<Sensore *>::const_iterator it = sensori.begin(); it!= sensori.end() && find==false; ++it){
+        if(inserita == (*it)->getName()){
+            find=true;
+        }
+        else
+            find=false;
+    }
+    return find;
+
+}
+
 void Serra::remove( Sensore* s){
     std::vector<Sensore*>::iterator it = std::find(sensori.begin(), sensori.end(), s);
     if (it != sensori.end()){

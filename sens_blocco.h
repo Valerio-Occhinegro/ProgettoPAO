@@ -22,6 +22,7 @@ public:
     Sens_blocco(Serra *serra, QWidget *parent = nullptr); //riferimento al container di sensori di serra
     void addLayoutSens();
     Sensore * getSensore();
+    bool controllaNomi(std::string);
 
 signals:
     void nuovo();
@@ -30,6 +31,9 @@ signals:
 
     void elimina(Sensore *);
 
+    void modify(Sensore *, QString);
+
+    void add(Sensore*);
 
 public slots:
     virtual void aggiungi()=0;// aggiunge un nuovo sens_widget->forse è meglio farlo in ogni blocco specializzato

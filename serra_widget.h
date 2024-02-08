@@ -29,12 +29,16 @@ private:
 
 
     QLineEdit * search;
-    QVBoxLayout * results;
+
 
 public:
     Serra_widget(Serra *, QWidget *parent = nullptr);
     void populate();
     void generate();
+    void cancel(Sensore *);
+    void modify(Sensore * , QString);
+    void add(Sensore *);
+
 
 signals:
     void visualizza(Sensore *);
