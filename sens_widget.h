@@ -28,12 +28,17 @@ private:
 
 public:
     sens_widget(Sensore * , Serra* , QWidget *parent = nullptr);
-    void elimina();
     Sensore* getSens()const;
+    bool controllaNomi(std::string);
+
+
+
+
+    void elimina();////////////////////////////////////////////
     void modifica();// modifica il nome del sens_widget e del sensore
     void visualizza();
 
-    bool controllaNomi(std::string);
+
 signals:
     void mostra(Sensore* );
     void eliminaInfo(Sensore*);

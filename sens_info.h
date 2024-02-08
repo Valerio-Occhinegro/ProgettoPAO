@@ -24,6 +24,8 @@ private:
     QLabel* max;
     QLabel* min;
     QPushButton * bRicalcola;
+    QPushButton * bElimina;
+    QPushButton * bModifica;
     Sensore *sensore;
 
 

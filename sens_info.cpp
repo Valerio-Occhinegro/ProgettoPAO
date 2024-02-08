@@ -23,11 +23,26 @@ Sens_info::Sens_info( QWidget *parent): QWidget(parent){
     bRicalcola->setSizePolicy(QSizePolicy::Fixed,QSizePolicy::Fixed);
     bRicalcola->setText("Ricalcola");
     bRicalcola->hide();
-    connect(bRicalcola, &QPushButton::pressed, this, &Sens_info::ricalcola); //////////////////
-    //connect(bRicalcola, &QPushButton::pressed, this, &Sens_info::visualizza);
-    //connect(bRicalcola, &QPushButton::pressed, std::bind(&Sens_info::visualizza, this,sensore));
+    connect(bRicalcola, &QPushButton::pressed, this, &Sens_info::ricalcola);
 
-    layout-> addWidget(bRicalcola);
+    /*
+    bModifica=new QPushButton();
+    bModifica->setSizePolicy(QSizePolicy::Fixed,QSizePolicy::Fixed);
+    bModifica->setText("Modifica");
+    bModifica->hide();
+    connect(bModifica, &QPushButton::pressed, this, &Sens_info::ricalcola);
+    */
+    /*
+    bElimina=new QPushButton();
+    bElimina->setSizePolicy(QSizePolicy::Fixed,QSizePolicy::Fixed);
+    bElimina->setText("Elimina");
+    bElimina->hide();
+    connect(bElimina, &QPushButton::pressed, this, &Sens_info::ricalcola);
+    */
+
+    layout->addWidget(bRicalcola);
+    //layout->addWidget(bModifica);
+    //layout->addWidget(bElimina);
 
 
     mainLayout->addLayout(layout);
@@ -46,7 +61,9 @@ Sens_info::Sens_info( QWidget *parent): QWidget(parent){
 
 
 
+
     chartView = new QChartView(chart);
+    chartView->setRenderHints(QPainter::Antialiasing |QPainter::SmoothPixmapTransform);
     chartView->hide();
 
     mainLayout->addWidget(chartView);
@@ -69,11 +86,13 @@ void Sens_info::visualizza(Sensore* s){
     name_label->setText(QString::fromStdString(s->getName()));
 
     bRicalcola->show();
+    //bModifica->show();
+    //bElimina->show();
 
     SensorInfoVisitor visitor;
     s->accept(visitor);
 
-    //layout->addWidget(visitor.getWidget());
+
     //modifico il visitor in maniera tale che mi riporti i nomi invece del widget intero
     min->setText(visitor.getMin());
     max->setText(visitor.getMax());
@@ -102,6 +121,7 @@ void Sens_info::visualizza(Sensore* s){
     chartView = new QChartView(chart);
     chartView->setMinimumHeight(200);
     chartView->setMinimumWidth(500);
+    chartView->setRenderHints(QPainter::Antialiasing |QPainter::SmoothPixmapTransform);
 
     mainLayout->addWidget(chartView);
 
@@ -145,6 +165,7 @@ void Sens_info::ricalcola(){
     chartView = new QChartView(chart);
     chartView->setMinimumHeight(200);
     chartView->setMinimumWidth(500);
+    chartView->setRenderHints(QPainter::Antialiasing |QPainter::SmoothPixmapTransform);
 
 
     mainLayout->addWidget(chartView);
