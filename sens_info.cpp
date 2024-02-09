@@ -11,6 +11,7 @@ Sens_info::Sens_info( QWidget *parent): QWidget(parent){
     layout->setAlignment(Qt::AlignLeft | Qt::AlignTop);
 
     name_label= new QLabel();
+    name_label->setObjectName("Titolo");
     layout-> addWidget(name_label);
 
     max=new QLabel();
@@ -21,28 +22,18 @@ Sens_info::Sens_info( QWidget *parent): QWidget(parent){
 
     bRicalcola = new QPushButton();
     bRicalcola->setSizePolicy(QSizePolicy::Fixed,QSizePolicy::Fixed);
+    bRicalcola->setIcon(QIcon("://icone/reload.svg"));
     bRicalcola->setText("Ricalcola");
     bRicalcola->hide();
     connect(bRicalcola, &QPushButton::pressed, this, &Sens_info::ricalcola);
 
-    /*
-    bModifica=new QPushButton();
-    bModifica->setSizePolicy(QSizePolicy::Fixed,QSizePolicy::Fixed);
-    bModifica->setText("Modifica");
-    bModifica->hide();
-    connect(bModifica, &QPushButton::pressed, this, &Sens_info::ricalcola);
-    */
-    /*
-    bElimina=new QPushButton();
-    bElimina->setSizePolicy(QSizePolicy::Fixed,QSizePolicy::Fixed);
-    bElimina->setText("Elimina");
-    bElimina->hide();
-    connect(bElimina, &QPushButton::pressed, this, &Sens_info::ricalcola);
-    */
 
     layout->addWidget(bRicalcola);
-    //layout->addWidget(bModifica);
-    //layout->addWidget(bElimina);
+
+    logo=new QLabel;
+    //logo->setSizePolicy(QSizePolicy::Fixed,QSizePolicy::Fixed);
+
+    layout->addWidget(logo);
 
 
     mainLayout->addLayout(layout);
@@ -58,12 +49,14 @@ Sens_info::Sens_info( QWidget *parent): QWidget(parent){
     chart->addSeries(series);
     chart->setTitle("Misurazioni");
     chart->createDefaultAxes();
+    chart->setContentsMargins(0, 0, 0, 0);
 
 
 
 
     chartView = new QChartView(chart);
     chartView->setRenderHints(QPainter::Antialiasing |QPainter::SmoothPixmapTransform);
+
     chartView->hide();
 
     mainLayout->addWidget(chartView);
@@ -81,21 +74,19 @@ void Sens_info::visualizza(Sensore* s){
     name_label->show();
     min->show();
     max->show();
+    logo->show();
+
 
     sensore=s;
     name_label->setText(QString::fromStdString(s->getName()));
 
     bRicalcola->show();
-    //bModifica->show();
-    //bElimina->show();
-
     SensorInfoVisitor visitor;
     s->accept(visitor);
 
-
-    //modifico il visitor in maniera tale che mi riporti i nomi invece del widget intero
     min->setText(visitor.getMin());
     max->setText(visitor.getMax());
+    logo->setPixmap(visitor.getPix());
 
     delete series; delete chart; delete chartView;
     dati=visitor.getValori();
@@ -115,6 +106,7 @@ void Sens_info::visualizza(Sensore* s){
     axisX->setRange(0,23);
     axisX->setTickCount(24);
     chart->addAxis(axisX,Qt::AlignBottom);
+    chart->setContentsMargins(0, 0, 0, 0);
 
 
 
@@ -142,6 +134,7 @@ void Sens_info::ricalcola(){
 
     min->setText(visitor.getMin());
     max->setText(visitor.getMax());
+    logo->setPixmap(visitor.getPix());
 
     delete series; delete chart; delete chartView;
     dati=visitor.getValori();
@@ -180,6 +173,7 @@ void Sens_info::cancel(Sensore *s){
     name_label->hide();
     min->hide();
     max->hide();
+    logo->hide();
     bRicalcola->hide();
     }
 }

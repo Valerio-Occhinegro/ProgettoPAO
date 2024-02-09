@@ -20,7 +20,7 @@ private:
     Sensore *sensore;
     Serra * serra;
     QLabel* name;
-    QVBoxLayout*layout_serra;
+    QHBoxLayout*layout_serra;
     QPushButton *send;
     QCompleter *completer;
 

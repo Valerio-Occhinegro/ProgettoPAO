@@ -6,11 +6,12 @@
 #include <QVBoxLayout>
 #include <QHBoxLayout>
 #include <QList>
+#include <QPixmap>
 #include "sensorvisitorinterface.h"
 
 class SensorInfoVisitor : public SensorVisitorInterface{
 private:
-    //QWidget * widget;
+    QPixmap  pix;
     QString minima;
     QString massima;
     QList<QPointF> valori;
@@ -20,6 +21,7 @@ public:
     QList<QPointF> getValori();
     QString  getMin();
     QString  getMax();
+    QPixmap getPix();
 
     void visitTermometro(Termometro & termometro) override;
     void visitIgrometro(Igrometro & igrometro) override;

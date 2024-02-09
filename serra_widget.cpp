@@ -6,7 +6,7 @@
 #include <QMessageBox>
 
 Serra_widget::Serra_widget(Serra* serra, QWidget *parent): QWidget(parent), serra(serra){
-    layout_serra= new QVBoxLayout(this);
+    layout_serra= new QHBoxLayout(this);
     layout_serra->setAlignment(Qt::AlignLeft | Qt::AlignTop);
 
     listaNomi=new QStringList;
@@ -26,39 +26,29 @@ Serra_widget::Serra_widget(Serra* serra, QWidget *parent): QWidget(parent), serr
     search->setMaxLength(18);
     connect(search,&QLineEdit::returnPressed,this,&Serra_widget::generate);
 
-    name= new QLabel();
-    name->setText("Serra");
-    layout_serra-> addWidget(name);
+    layout_serra-> addWidget(search);
 
-    layout_serra->addWidget(search);
+
 
     send=new QPushButton;
-    send->setText("Ricerca");
+    send->setIcon(QIcon("://icone/search.svg"));
     connect(send, &QPushButton::pressed, this, &Serra_widget::generate);
 
-    layout_serra->addWidget(send);
+
+    layout_serra-> addWidget(send);
+
+
 
 }
 
 void Serra_widget::populate(){
-    /*if(!listaNomi->isEmpty()) listaNomi->clear();
-
-    for(std::vector< Sensore *>::const_iterator it = serra->getSensori().begin(); it!= serra->getSensori().end(); ++it){
-        listaNomi->push_back(QString::fromStdString((*it)->getName()));
-    }
-    */
     delete completer;
 
     completer=new QCompleter(*listaNomi);
 
+
     delete search;
     delete send;
-    delete name;
-
-
-    name= new QLabel();
-    name->setText("Serra");
-    layout_serra-> addWidget(name);
 
     search=new QLineEdit;
     search->setCompleter(completer);
@@ -69,7 +59,7 @@ void Serra_widget::populate(){
 
 
     send=new QPushButton;
-    send->setText("Ricerca");
+    send->setIcon(QIcon("://icone/search.svg"));
     connect(send, &QPushButton::pressed, this, &Serra_widget::generate);
 
     layout_serra->addWidget(send);

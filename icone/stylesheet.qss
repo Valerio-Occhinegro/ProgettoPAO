@@ -1,0 +1,78 @@
+
+* {
+    background-color:white;
+    font-size: 13px;
+    font-family: Arial;
+
+}
+
+QMenuBar{
+    background-color: rgb(200, 200, 200);
+}
+
+QMenuBar::item:selected, QMenu::item:selected{
+    background-color: rgb(100, 100, 100);
+}
+
+
+QPushButton{
+    background-color: rgb(200, 200, 200);
+}
+
+
+
+QPushButton:hover{
+    background-color: rgb(100,100,100);
+}
+
+
+#bVisualizza{
+
+}
+
+#bModifica{
+
+}
+
+#bElimina:hover{
+    background-color: red;
+}
+
+#bNuovo:hover{
+    background-color: green;
+}
+
+#Titolo{
+    font-weight: bold;
+    font-size: 16px;
+}
+#Termometri{
+    font-weight: bold;
+    font-size: 16px;
+}
+
+#Igrometri{
+    font-weight: bold;
+    font-size: 16px;
+}
+
+#Luxometri{
+    font-weight: bold;
+    font-size: 16px;
+}
+
+QLineEdit{
+    background-color: white;
+}
+
+QScrollArea {
+    border: 2px solid rgb(200, 200, 200);
+}
+
+QScrollBar:vertical{
+
+    background-color:rgb(200, 200, 200);
+
+}
+
+

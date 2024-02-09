@@ -4,7 +4,7 @@
 #include <QScrollArea>
 
 #include "luxometro.h"
-#include "sensorinfovisitor.h"
+
 
 Lux_blocco::Lux_blocco(Serra* serra, QWidget *parent) : Sens_blocco(serra, parent) {
     QString t="Luxometri";
@@ -12,8 +12,11 @@ Lux_blocco::Lux_blocco(Serra* serra, QWidget *parent) : Sens_blocco(serra, paren
     layout_blocco= new QVBoxLayout(this);
     layout_blocco->setAlignment(Qt::AlignCenter | Qt::AlignTop);
 
+
+
     QLabel *titolo= new QLabel();
     titolo->setText(t);
+    titolo->setObjectName("Luxometri");
     titolo->setAlignment(Qt::AlignCenter);
     layout_blocco-> addWidget(titolo);
 
@@ -55,7 +58,9 @@ Lux_blocco::Lux_blocco(Serra* serra, QWidget *parent) : Sens_blocco(serra, paren
     layout_blocco->addWidget(scrollArea);
 
 
-    QPushButton* nuovo = new QPushButton("nuovo");
+    QPushButton* nuovo = new QPushButton();
+    nuovo->setIcon(QIcon("://icone/add.svg"));
+    nuovo->setObjectName("bNuovo");
     layout_blocco-> addWidget(nuovo);
     connect(nuovo, &QPushButton::pressed, this, &Sens_blocco::aggiungi);
 }

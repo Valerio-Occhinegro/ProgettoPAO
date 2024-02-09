@@ -4,7 +4,7 @@
 #include <QScrollArea>
 
 #include "igrometro.h"
-#include "sensorinfovisitor.h"
+
 
 Igro_blocco::Igro_blocco(Serra* serra, QWidget *parent) : Sens_blocco(serra, parent) {
     QString t="Igrometri";
@@ -14,6 +14,7 @@ Igro_blocco::Igro_blocco(Serra* serra, QWidget *parent) : Sens_blocco(serra, par
 
     QLabel *titolo= new QLabel();
     titolo->setText(t);
+    titolo->setObjectName("Igrometri");
     titolo->setAlignment(Qt::AlignCenter);
     layout_blocco-> addWidget(titolo);
 
@@ -56,7 +57,9 @@ Igro_blocco::Igro_blocco(Serra* serra, QWidget *parent) : Sens_blocco(serra, par
     layout_blocco->addWidget(scrollArea);
 
 
-    QPushButton* nuovo = new QPushButton("nuovo");
+    QPushButton* nuovo = new QPushButton();
+    nuovo->setObjectName("bNuovo");
+    nuovo->setIcon(QIcon("://icone/add.svg"));
     layout_blocco-> addWidget(nuovo);
     connect(nuovo, &QPushButton::pressed, this, &Sens_blocco::aggiungi);
 }

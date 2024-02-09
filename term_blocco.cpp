@@ -13,7 +13,9 @@ term_blocco::term_blocco(Serra * serra, QWidget *parent) : Sens_blocco(serra, pa
     layout_blocco= new QVBoxLayout(this);
     layout_blocco->setAlignment(Qt::AlignCenter | Qt::AlignTop);
 
+
     QLabel *titolo= new QLabel();
+    titolo->setObjectName("Termometri");
     titolo->setText(t);
     titolo->setAlignment(Qt::AlignCenter);
     layout_blocco-> addWidget(titolo);
@@ -22,6 +24,7 @@ term_blocco::term_blocco(Serra * serra, QWidget *parent) : Sens_blocco(serra, pa
     //layout per i sens_widget a cui aggiungerò anche una barra per lo scroll laterale
     layout_sens= new QVBoxLayout(this);
     layout_sens->setAlignment(Qt::AlignCenter | Qt::AlignTop);
+
 
 
 
@@ -59,7 +62,9 @@ term_blocco::term_blocco(Serra * serra, QWidget *parent) : Sens_blocco(serra, pa
     layout_blocco->addWidget(scrollArea);
 
 
-    QPushButton* nuovo = new QPushButton("nuovo");
+    QPushButton* nuovo = new QPushButton();
+    nuovo->setIcon(QIcon("://icone/add.svg"));
+    nuovo->setObjectName("bNuovo");
     layout_blocco-> addWidget(nuovo);
     connect(nuovo, &QPushButton::pressed, this, &Sens_blocco::aggiungi);
 

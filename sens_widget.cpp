@@ -1,9 +1,8 @@
 #include "sens_widget.h"
 
-
-
 #include <QInputDialog>
 #include <QMessageBox>
+#include <QIcon>
 
 sens_widget::sens_widget(Sensore * sensore,Serra* serra, QWidget *parent): QWidget(parent), sensore(sensore), serra(serra){
 
@@ -13,18 +12,23 @@ sens_widget::sens_widget(Sensore * sensore,Serra* serra, QWidget *parent): QWidg
     bVisualizza = new QPushButton();
     bVisualizza->setSizePolicy(QSizePolicy::Fixed,QSizePolicy::Fixed);
     bVisualizza->setText(QString::fromStdString(sensore->getName()));
+    bVisualizza->setObjectName("bVisualizza");
     layout_sens-> addWidget(bVisualizza);
 
     connect(bVisualizza, &QPushButton::pressed, std::bind(&sens_widget::mostra, this,sensore));
 
 
-    bModifica = new QPushButton("modifica");
+    bModifica = new QPushButton();
     bModifica->setSizePolicy(QSizePolicy::Fixed,QSizePolicy::Fixed);
+    bModifica->setIcon(QIcon("://icone/settings.svg"));
+    bModifica->setObjectName("bModifica");
     layout_sens-> addWidget(bModifica);
     connect(bModifica, &QPushButton::pressed, this, &sens_widget::modifica);
 
-    bElimina = new QPushButton("elimina");
+    bElimina = new QPushButton();
     bElimina->setSizePolicy(QSizePolicy::Fixed,QSizePolicy::Fixed);
+    bElimina->setObjectName("bElimina");
+    bElimina->setIcon(QIcon("://icone/delete.svg"));
 
     layout_sens-> addWidget(bElimina);
     connect(bElimina, &QPushButton::pressed, this, &sens_widget::elimina);

@@ -8,9 +8,10 @@
 #include <QPointF>
 #include <QList>
 #include <QtCharts/QtCharts>
+#include <QPixmap>
 
 #include "sensore.h"
-#include "sensorinfovisitor.h"
+
 
 
 
@@ -23,10 +24,12 @@ private:
     QLabel* name_label;
     QLabel* max;
     QLabel* min;
+    QLabel *logo;
     QPushButton * bRicalcola;
     QPushButton * bElimina;
     QPushButton * bModifica;
     Sensore *sensore;
+
 
 
 

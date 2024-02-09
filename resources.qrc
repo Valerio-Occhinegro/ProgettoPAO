@@ -1,0 +1,17 @@
+<RCC>
+    <qresource prefix="/">
+        <file>icone/add.svg</file>
+        <file>icone/delete.svg</file>
+        <file>icone/import.svg</file>
+        <file>icone/mist.svg</file>
+        <file>icone/progetto_serra.svg</file>
+        <file>icone/progetto_serra_noline.svg</file>
+        <file>icone/reload.svg</file>
+        <file>icone/save.svg</file>
+        <file>icone/search.svg</file>
+        <file>icone/settings.svg</file>
+        <file>icone/stylesheet.qss</file>
+        <file>icone/sun.svg</file>
+        <file>icone/termometro.svg</file>
+    </qresource>
+</RCC>
