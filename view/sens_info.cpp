@@ -1,8 +1,7 @@
-#include "sens_info.h"
-#include "sensorinfovisitor.h"
-
 #include <QPushButton>
 
+#include "sens_info.h"
+#include "../model/sensorinfovisitor.h"
 
 Sens_info::Sens_info( QWidget *parent): QWidget(parent){
     mainLayout=new QHBoxLayout(this);
@@ -31,6 +30,12 @@ Sens_info::Sens_info( QWidget *parent): QWidget(parent){
     layout->addWidget(bRicalcola);
 
     logo=new QLabel;
+    /*
+    logo->setMinimumHeight(50);
+    logo->setMinimumWidth(50);
+    logo->setMaximumHeight(150);
+    logo->setMaximumWidth(150);
+*/
     //logo->setSizePolicy(QSizePolicy::Fixed,QSizePolicy::Fixed);
 
     layout->addWidget(logo);
@@ -86,7 +91,7 @@ void Sens_info::visualizza(Sensore* s){
 
     min->setText(visitor.getMin());
     max->setText(visitor.getMax());
-    logo->setPixmap(visitor.getPix());
+    logo->setPixmap(visitor.getPix().scaledToHeight(150));
 
     delete series; delete chart; delete chartView;
     dati=visitor.getValori();
@@ -134,7 +139,8 @@ void Sens_info::ricalcola(){
 
     min->setText(visitor.getMin());
     max->setText(visitor.getMax());
-    logo->setPixmap(visitor.getPix());
+    logo->setPixmap(visitor.getPix().scaledToHeight(150));
+
 
     delete series; delete chart; delete chartView;
     dati=visitor.getValori();

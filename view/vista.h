@@ -5,17 +5,15 @@
 #include <QVBoxLayout>
 #include <QHBoxLayout>
 
-#include "sensore.h"
-#include "termometro.h"///////
-#include "igrometro.h"////
-#include "luxometro.h"/////
+
+#include "../model/sensore.h"
+#include "../model/serra.h"
+
+
 #include "term_blocco.h"
 #include "igro_blocco.h"
 #include "lux_blocco.h"
-
-
 #include "sens_info.h"
-#include "serra.h"
 #include "serra_widget.h"
 
 class Vista: public QWidget{

@@ -1,9 +1,10 @@
+#include <QPointF>
+
 #include "sensorinfovisitor.h"
 #include "termometro.h"
 #include "igrometro.h"
 #include "luxometro.h"
 
-#include <QPointF>
 
 /*QWidget *SensorInfoVisitor::getWidget(){
     return widget;
@@ -28,7 +29,8 @@ QPixmap SensorInfoVisitor::getPix(){
 
 void SensorInfoVisitor::visitTermometro(Termometro & termometro){
     pix.load("://icone/termometro.svg");
-    pix.scaledToWidth(100);
+
+
     minima=("Temperatura minima: " + QString::number(termometro.getMin()) + " C°");
 
     massima=("Temperatura massima: " + QString::number(termometro.getMax()) + " C°" );
@@ -46,7 +48,7 @@ void SensorInfoVisitor::visitTermometro(Termometro & termometro){
 
 void SensorInfoVisitor::visitIgrometro(Igrometro &igrometro){
     pix.load("://icone/mist.svg");
-    pix.scaledToWidth(100);
+
     minima=("Umidità minima: " + QString::number(igrometro.getMin()) + " %");
 
     massima=("Umidità massima: " + QString::number(igrometro.getMax()) + " %");
@@ -63,7 +65,7 @@ void SensorInfoVisitor::visitIgrometro(Igrometro &igrometro){
 
 void SensorInfoVisitor::visitLuxometro(Luxometro &luxometro){
     pix.load("://icone/sun.svg");
-    pix.scaledToWidth(100);
+
     minima=("Illuminamento minimo: " + QString::number(luxometro.getMin()) + " LUX");
 
     massima=("Illuminamento massimo: " + QString::number(luxometro.getMax()) + " LUX");

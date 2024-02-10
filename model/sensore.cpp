@@ -1,6 +1,7 @@
-#include "sensore.h"
 #include <random>
 #include <algorithm>
+
+#include "sensore.h"
 
 Sensore::Sensore(std::string n,  double aMin, double aMax, double mMin, double mMax) : name(n), ampMin(aMin), ampMax(aMax), meanMin(mMin), meanMax(mMax) {}
 

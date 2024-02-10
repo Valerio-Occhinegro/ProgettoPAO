@@ -1,6 +1,8 @@
-#include "serra.h"
 #include<algorithm>
 #include <iostream>
+
+#include "serra.h"
+
 Serra::Serra(std::string n): name(n){}
 
 Serra::~Serra(){
@@ -11,10 +13,6 @@ std::vector<Sensore *> &Serra::getSensori() {
     return sensori;
 }
 
-void Serra::addSensore(Sensore *s){
-    sensori.push_back(s);
-    std::cout<<"inserito"<<std::endl;
-}
 
 Sensore * Serra::search(std::string inserita){
     Sensore * ritorno;
@@ -28,7 +26,7 @@ Sensore * Serra::search(std::string inserita){
             ritorno= nullptr;
     }
     return ritorno;
-}//////////////////////////////////
+}
 
 unsigned short Serra::getSize() const{
     return sensori.size();
@@ -68,7 +66,7 @@ void Serra::remove( Sensore* s){
 
 }
 
-void Serra::destroy(){//boh
+void Serra::destroy(){
     for(std::vector<Sensore *>::const_iterator it = sensori.begin(); it!= sensori.end(); ++it){
         delete *it;
         sensori.erase(it);
@@ -76,3 +74,7 @@ void Serra::destroy(){//boh
 }
 
 
+void Serra::addSensore(Sensore *s){
+    sensori.push_back(s);
+    std::cout<<"inserito"<<std::endl;
+}

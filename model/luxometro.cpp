@@ -1,6 +1,7 @@
-#include "luxometro.h"
 #include <cmath>
 #include <iostream>
+
+#include "luxometro.h"
 #define pi 3.1415
 
 Luxometro::Luxometro(std::string n) : Sensore(n, 5.0, 20.0, 40.0, 50.0){

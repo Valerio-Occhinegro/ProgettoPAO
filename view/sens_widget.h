@@ -7,12 +7,8 @@
 #include <QPushButton>
 #include <QWindow>
 
-#include "sensore.h"
-#include "serra.h"
-
-
-
-
+#include "../model/sensore.h"
+#include "../model/serra.h"
 
 class sens_widget : public QWidget{
     Q_OBJECT

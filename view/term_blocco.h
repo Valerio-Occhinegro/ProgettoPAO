@@ -2,7 +2,7 @@
 #define TERM_BLOCCO_H
 
 #include "sens_blocco.h"
-#include "serra.h"
+
 
 
 class term_blocco : public Sens_blocco{    

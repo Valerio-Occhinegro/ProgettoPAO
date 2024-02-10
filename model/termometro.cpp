@@ -1,6 +1,7 @@
-#include "termometro.h"
 #include <cmath>
 #include <iostream>
+
+#include "termometro.h"
 #define pi 3.1415
 
 Termometro::Termometro(std::string n) : Sensore(n, 5.0, 10.0, 5.0, 30.0){

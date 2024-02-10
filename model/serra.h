@@ -15,7 +15,6 @@ public:
     Serra(std::string);
     ~Serra();
     std::vector<Sensore*>& getSensori();
-    void addSensore(Sensore *);
     Sensore * search(std::string);
     void print() const;
 
@@ -25,6 +24,9 @@ public:
     void insert(Sensore*);
     void remove(Sensore*);
     void destroy();
+
+    //per verificare inserimento da terminale
+    void addSensore(Sensore *);
 
 };
 

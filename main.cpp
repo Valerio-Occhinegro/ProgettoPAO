@@ -1,11 +1,12 @@
-#include "mainwindow.h"
-
 #include <QApplication>
-#include "termometro.h"
-#include "igrometro.h"
-#include "luxometro.h"
-#include "serra.h"
 #include <iostream>//////////////////////////////
+
+#include "./view/mainwindow.h"
+#include "./model/termometro.h"
+#include "./model/igrometro.h"
+#include "./model/luxometro.h"
+#include "./model/serra.h"
+
 
 
 int main(int argc, char *argv[]){

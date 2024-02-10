@@ -10,7 +10,8 @@
 #include <QtCharts/QtCharts>
 #include <QPixmap>
 
-#include "sensore.h"
+#include "../model/sensore.h"
+
 
 
 

@@ -1,9 +1,9 @@
-#include "igro_blocco.h"
 #include <QInputDialog>
 #include <QMessageBox>
 #include <QScrollArea>
 
-#include "igrometro.h"
+#include "igro_blocco.h"
+#include "../model/igrometro.h"
 
 
 Igro_blocco::Igro_blocco(Serra* serra, QWidget *parent) : Sens_blocco(serra, parent) {
@@ -20,7 +20,7 @@ Igro_blocco::Igro_blocco(Serra* serra, QWidget *parent) : Sens_blocco(serra, par
 
 
     //layout per i sens_widget a cui aggiungerò anche una barra per lo scroll laterale
-    layout_sens= new QVBoxLayout(this);
+    layout_sens= new QVBoxLayout();
     layout_sens->setAlignment(Qt::AlignCenter | Qt::AlignTop);
 
 

@@ -10,44 +10,42 @@ CONFIG += c++17
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
-    igro_blocco.cpp \
-    igrometro.cpp \
-    lux_blocco.cpp \
-    luxometro.cpp \
     main.cpp \
-    mainwindow.cpp \
-    sens_blocco.cpp \
-    sens_info.cpp \
-    sens_widget.cpp \
-    sensore.cpp \
-    sensorinfovisitor.cpp \
-    serra.cpp \
-    serra_widget.cpp \
-    term_blocco.cpp \
-    termometro.cpp \
-    vista.cpp
+    model/igrometro.cpp \
+    model/luxometro.cpp \
+    model/sensore.cpp \
+    model/sensorinfovisitor.cpp \
+    model/serra.cpp \
+    model/termometro.cpp \
+    view/igro_blocco.cpp \
+    view/lux_blocco.cpp \
+    view/mainwindow.cpp \
+    view/sens_blocco.cpp \
+    view/sens_info.cpp \
+    view/sens_widget.cpp \
+    view/serra_widget.cpp \
+    view/term_blocco.cpp \
+    view/vista.cpp
+
 
 HEADERS += \
-    igro_blocco.h \
-    igrometro.h \
-    lux_blocco.h \
-    luxometro.h \
-    mainwindow.h \
-    sens_blocco.h \
-    sens_info.h \
-    sens_widget.h \
-    sensore.h \
-    sensorinfovisitor.h \
-    sensorobserverinterface.h \
-    sensorvisitorinterface.h \
-    serra.h \
-    serra_widget.h \
-    term_blocco.h \
-    termometro.h \
-    vista.h
-
-FORMS += \
-    mainwindow.ui
+    model/igrometro.h \
+    model/luxometro.h \
+    model/sensore.h \
+    model/sensorinfovisitor.h \
+    model/sensorobserverinterface.h \
+    model/sensorvisitorinterface.h \
+    model/serra.h \
+    model/termometro.h \
+    view/igro_blocco.h \
+    view/lux_blocco.h \
+    view/mainwindow.h \
+    view/sens_blocco.h \
+    view/sens_info.h \
+    view/sens_widget.h \
+    view/serra_widget.h \
+    view/term_blocco.h \
+    view/vista.h
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin

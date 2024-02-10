@@ -10,9 +10,10 @@
 #include <QLineEdit>
 #include <QCompleter>
 
-#include "serra.h"
+#include "../model/sensore.h"
+#include "../model/serra.h"
 #include "sens_widget.h"
-#include "sensore.h"
+
 
 class Serra_widget : public QWidget{
     Q_OBJECT

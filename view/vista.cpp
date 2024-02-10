@@ -10,9 +10,9 @@ Vista::Vista(Serra *serra, QWidget *parent): QWidget(parent) {
     mainLayout= new QVBoxLayout(this);
 
     //creo due layout orizzontali
-    upLayout= new QHBoxLayout(this);
+    upLayout= new QHBoxLayout();
 
-    downLayout= new QHBoxLayout(this);
+    downLayout= new QHBoxLayout();
 
     addUpLayout(serra);
 
@@ -54,8 +54,6 @@ void Vista::eliminaSI(Sensore *s){
 
 void Vista::add(Sensore * s){
     serraW->add(s);
-
-
 }
 
 void Vista::modify(Sensore * s, QString n){

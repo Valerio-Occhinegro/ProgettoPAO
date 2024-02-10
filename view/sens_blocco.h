@@ -6,8 +6,9 @@
 #include <QVector>
 #include <QString>
 #include <QVBoxLayout>
-#include "sensore.h"
-#include "serra.h"
+
+#include "../model/sensore.h"
+#include "../model/serra.h"
 #include "sens_widget.h"
 
 class Sens_blocco : public QWidget{

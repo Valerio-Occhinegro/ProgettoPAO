@@ -2,8 +2,9 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
-#include <sensore.h>
-#include "serra.h"
+
+#include "../model/serra.h"
+
 
 QT_BEGIN_NAMESPACE
 namespace Ui {

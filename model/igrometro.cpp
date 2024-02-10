@@ -1,6 +1,7 @@
-#include "igrometro.h"
 #include <cmath>
 #include <iostream>
+
+#include "igrometro.h"
 #define pi 3.1415
 
 Igrometro::Igrometro(std::string n)  : Sensore(n, 5.0, 27.0, 30.0, 75.0) {
