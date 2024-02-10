@@ -17,19 +17,33 @@ MainWindow::MainWindow(Serra *serra,QWidget *parent): QMainWindow(parent){
     QString stylesheet=QLatin1String(file.readAll());
     setStyleSheet(stylesheet);
 
+
+
 }
 
 void MainWindow::addMenu(){
     QMenuBar* menubar= new QMenuBar(this);
     QMenu* menu= new QMenu("File",menubar);
-    QAction* exit= new QAction("Exit",menu);
 
-    menu->addAction(exit);
+    QAction* apri=new QAction(
+        QIcon(QPixmap((":/icone/import.svg"))),"Apri");
+
+    QAction* salva = new QAction(QIcon(QPixmap((":/icone/save.svg"))),"Salva");
+    salva->setShortcut(QKeySequence(Qt::CTRL | Qt::Key_S));
+
+    QAction* save_as = new QAction("Salva con nome");
+    save_as->setShortcut(QKeySequence(Qt::CTRL | Qt::SHIFT | Qt::Key_S));
+
+
+    menu->addAction(save_as);
 
     menubar->addMenu(menu);
 
-    this->setMenuBar(menubar);
+    menubar->addAction(salva);
 
+    menubar->addAction(apri);
+
+    this->setMenuBar(menubar);
 }
 
 
