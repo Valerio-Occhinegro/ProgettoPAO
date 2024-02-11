@@ -30,16 +30,10 @@ private:
     QPushButton * bElimina;
     QPushButton * bModifica;
     Sensore *sensore;
-
-
-
-
     QList<QPointF> dati;
     QLineSeries * series;
     QChart * chart;
     QChartView *chartView;
-
-
     QHBoxLayout *mainLayout;
     QVBoxLayout *layout;
 
@@ -47,9 +41,6 @@ public:
     Sens_info( QWidget *parent = nullptr);
     void notify ( Sensore & sensore ) override ;
     void clear();
-
-
-
 public slots:
     void visualizza(Sensore *);
     void ricalcola();

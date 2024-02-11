@@ -74,6 +74,8 @@ void Serra_widget::generate(){
 
     if(sensore!=nullptr)
         emit visualizza(sensore);
+    else
+        QMessageBox::warning(this, tr("Problema in input"), tr("il sensore ricercato non esiste"));
 }
 
 void Serra_widget::cancel(Sensore * s){

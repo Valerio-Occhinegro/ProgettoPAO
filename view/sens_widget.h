@@ -26,12 +26,8 @@ public:
     sens_widget(Sensore * , Serra* , QWidget *parent = nullptr);
     Sensore* getSens()const;
     bool controllaNomi(std::string);
-
-
-
-
-    void elimina();////////////////////////////////////////////
-    void modifica();// modifica il nome del sens_widget e del sensore
+    void elimina();
+    void modifica();
     void visualizza();
 
 

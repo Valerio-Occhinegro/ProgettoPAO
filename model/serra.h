@@ -10,7 +10,7 @@ class Serra{
 private:
     std::string name;
     std::vector<Sensore*> sensori;
-    unsigned short size;    // vettore che conterrà tutti i sensori presenti in una serra
+    unsigned short size;
 public:
     Serra(std::string);
     ~Serra();

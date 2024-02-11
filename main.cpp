@@ -49,19 +49,5 @@ int main(int argc, char *argv[]){
     w.show();
     return a.exec();
 
-
-
-    /*
-    std::cout<<"stampa pre eliminazione"<<std::endl;
-    quinto.print();
-    quinto.remove(secondo);
-    std::cout<<"stampa post eliminazione"<<std::endl;
-    quinto.print();
-    std::cout<<"test test"<<std::endl;
-    secondo->printMeasure();
-    */
-
-
-
     return 0;
 }

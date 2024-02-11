@@ -17,7 +17,6 @@ private:
     QList<QPointF> valori;
 
 public:
-    //QWidget* getWidget();
     QList<QPointF> getValori();
     QString  getMin();
     QString  getMax();

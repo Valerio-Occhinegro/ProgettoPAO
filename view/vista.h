@@ -19,10 +19,6 @@
 class Vista: public QWidget{
     Q_OBJECT
 private:
-    //per vedere se funziona
-    //Sensore* sensTest= new Luxometro("test");
-    //std::vector<const Sensore*> *sensori;
-    //
     Serra_widget *serraW;
     Sens_info *info;
     term_blocco *termometri;
@@ -38,8 +34,6 @@ public:
     void addUpLayout(Serra *serra);
     void addDownLayout(Serra *serra);
 
-    //private:
-    //Ui::MainWindow *ui;
 public slots:
     void visualizza(Sensore *);
     void eliminaSI(Sensore *);

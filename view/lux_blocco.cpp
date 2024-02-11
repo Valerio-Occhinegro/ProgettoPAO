@@ -20,8 +20,6 @@ Lux_blocco::Lux_blocco(Serra* serra, QWidget *parent) : Sens_blocco(serra, paren
     titolo->setAlignment(Qt::AlignCenter);
     layout_blocco-> addWidget(titolo);
 
-
-    //layout per i sens_widget a cui aggiungerò anche una barra per lo scroll laterale
     layout_sens= new QVBoxLayout();
     layout_sens->setAlignment(Qt::AlignCenter | Qt::AlignTop);
 

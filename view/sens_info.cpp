@@ -30,13 +30,6 @@ Sens_info::Sens_info( QWidget *parent): QWidget(parent){
     layout->addWidget(bRicalcola);
 
     logo=new QLabel;
-    /*
-    logo->setMinimumHeight(50);
-    logo->setMinimumWidth(50);
-    logo->setMaximumHeight(150);
-    logo->setMaximumWidth(150);
-*/
-    //logo->setSizePolicy(QSizePolicy::Fixed,QSizePolicy::Fixed);
 
     layout->addWidget(logo);
 

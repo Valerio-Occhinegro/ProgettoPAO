@@ -12,7 +12,7 @@
 
 #include "../model/sensore.h"
 #include "../model/serra.h"
-#include "sens_widget.h"
+
 
 
 class Serra_widget : public QWidget{
@@ -24,11 +24,7 @@ private:
     QHBoxLayout*layout_serra;
     QPushButton *send;
     QCompleter *completer;
-
     QStringList * listaNomi;
-    QVector<sens_widget *> bVettore;
-
-
     QLineEdit * search;
 
 

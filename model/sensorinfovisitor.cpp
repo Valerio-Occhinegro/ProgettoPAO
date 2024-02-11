@@ -6,11 +6,6 @@
 #include "luxometro.h"
 
 
-/*QWidget *SensorInfoVisitor::getWidget(){
-    return widget;
-}
-*/
-
 QList<QPointF> SensorInfoVisitor::getValori(){
     return valori;
 }
