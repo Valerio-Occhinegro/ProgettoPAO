@@ -70,12 +70,16 @@ void Serra_widget::generate(){
 
     QString input=search->text();
 
+    if(serra->getSize()!=0){
     sensore=serra->search(input.toStdString());
 
     if(sensore!=nullptr)
         emit visualizza(sensore);
     else
         QMessageBox::warning(this, tr("Problema in input"), tr("il sensore ricercato non esiste"));
+    }
+    else
+        QMessageBox::warning(this, tr("Problema in input"), tr("la serra è vuota"));
 }
 
 void Serra_widget::cancel(Sensore * s){

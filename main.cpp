@@ -11,6 +11,7 @@
 
 int main(int argc, char *argv[]){
     QApplication a(argc, argv);
+    a.setWindowIcon(QIcon(":/icone/progetto_serra.svg"));
 
     Sensore * primo=new Termometro("Togliatti");
     Sensore * secondo=new Igrometro("Giolitti");

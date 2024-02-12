@@ -62,6 +62,7 @@ Igro_blocco::Igro_blocco(Serra* serra, QWidget *parent) : Sens_blocco(serra, par
     nuovo->setIcon(QIcon("://icone/add.svg"));
     layout_blocco-> addWidget(nuovo);
     connect(nuovo, &QPushButton::pressed, this, &Sens_blocco::aggiungi);
+    nuovo->setShortcut(QKeySequence(Qt::CTRL | Qt::Key_I));
 }
 
 void Igro_blocco::aggiungi(){

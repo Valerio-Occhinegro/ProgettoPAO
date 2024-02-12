@@ -67,7 +67,7 @@ term_blocco::term_blocco(Serra * serra, QWidget *parent) : Sens_blocco(serra, pa
     nuovo->setObjectName("bNuovo");
     layout_blocco-> addWidget(nuovo);
     connect(nuovo, &QPushButton::pressed, this, &Sens_blocco::aggiungi);
-
+    nuovo->setShortcut(QKeySequence(Qt::CTRL | Qt::Key_T));
 
 
 }

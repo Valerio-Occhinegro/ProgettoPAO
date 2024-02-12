@@ -16,6 +16,12 @@ std::vector<Sensore *> &Serra::getSensori() {
 
 Sensore * Serra::search(std::string inserita){
     Sensore * ritorno;
+
+    if(sensori.size()!=0){
+        ritorno=nullptr;
+        return ritorno;
+    }
+
     bool find=false;
     for(std::vector<Sensore *>::const_iterator it = sensori.begin(); it!= sensori.end() && find==false; ++it){
         if(inserita == (*it)->getName()){

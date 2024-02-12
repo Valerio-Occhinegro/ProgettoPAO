@@ -84,7 +84,7 @@ void Sens_info::visualizza(Sensore* s){
 
     min->setText(visitor.getMin());
     max->setText(visitor.getMax());
-    logo->setPixmap(visitor.getPix().scaledToHeight(150));
+    logo->setPixmap(visitor.getPix().scaledToHeight(150,Qt::SmoothTransformation));
 
     delete series; delete chart; delete chartView;
     dati=visitor.getValori();
@@ -132,7 +132,7 @@ void Sens_info::ricalcola(){
 
     min->setText(visitor.getMin());
     max->setText(visitor.getMax());
-    logo->setPixmap(visitor.getPix().scaledToHeight(150));
+    logo->setPixmap(visitor.getPix().scaledToHeight(150,Qt::SmoothTransformation));
 
 
     delete series; delete chart; delete chartView;
