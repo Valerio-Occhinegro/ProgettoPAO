@@ -11,8 +11,7 @@ Persistenza::Persistenza(Serra* serra): serra(serra) {}
 
 void Persistenza::scrivi() {
     std::fstream file;
-    std::string nome="persistenza.csv";
-    //std::string nome="../Gestione_serre/persistenza.csv";
+    std::string nome="../Gestione_serre/persistenza.csv";
 
     file.open(nome,std::ios_base::out);
     if (file.is_open()) {
@@ -22,19 +21,13 @@ void Persistenza::scrivi() {
 }
 
 void Persistenza::leggi(){
-    std::cout<<"-1"<<std::endl;
-    std::string nome="persistenza.csv";
-    std::ifstream file(nome, std::ios_base::app);
+    std::string nome="../Gestione_serre/persistenza.csv";
+    std::ifstream file;
     std::string line;
 
-    file.open(nome,std::ios_base::out);
-    /*    if(file.is_open()){
-        std::cout<<"0"<<std::endl;
-            std::cout<<"ciao"<<file.rdbuf();
-    }*/
-    //std::cout << std::getline(file, line)<<std::endl;
+    file.open(nome,std::ios_base::in);
+    if(file.is_open()){
     while(std::getline(file,line)){
-        std::cout<<"1"<<std::endl;
         std::string tipo, nome, misure;
         std::vector<double> measure;
         std::istringstream iss(line);
@@ -47,13 +40,13 @@ void Persistenza::leggi(){
         }
 
         if(tipo=="Termometro"){
-            std::cout<<"2"<<std::endl;
             serra->addSensore(new Termometro(nome,measure));//Termometro(nome,measure) cambiare sensore per accettare una stringa alla costruzione
         }
         if(tipo=="Igrometro")
             serra->addSensore(new Igrometro(nome,measure));
-        else
+        else if(tipo=="Luxometro")
             serra->addSensore(new Luxometro(nome,measure));
+    }
     }
 
     file.close();
