@@ -13,6 +13,5 @@
         <file>icone/stylesheet.qss</file>
         <file>icone/sun.svg</file>
         <file>icone/termometro.svg</file>
-        <file>persistenza.csv</file>
     </qresource>
 </RCC>

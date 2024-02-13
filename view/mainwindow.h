@@ -14,10 +14,12 @@ QT_END_NAMESPACE
 
 class MainWindow : public QMainWindow{
     Q_OBJECT
-
+private:
+    Serra* serra;
 public:
     MainWindow(Serra *serra,QWidget *parent = nullptr);
     void addMenu();
+    void salvataggio();
 
 };
 #endif // MAINWINDOW_H

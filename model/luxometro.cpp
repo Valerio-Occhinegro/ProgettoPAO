@@ -12,15 +12,11 @@ std::string Luxometro::printMeasure() const{
     std::string stampa;
     stampa+="Luxometro";
     stampa.push_back(',');
-    stampa.push_back('\n');
     stampa+=getName();
     stampa.push_back(',');
-    stampa.push_back('\n');
     for (unsigned short i = 0; i < 24; ++i){
-        stampa+=getMeasure()[i];
+        stampa+=std::to_string(getMeasure()[i]);
         stampa.push_back(',');
-        stampa.push_back('\n');
-
     }
     return stampa;
 }

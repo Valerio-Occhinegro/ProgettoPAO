@@ -5,8 +5,10 @@
 
 #include "mainwindow.h"
 #include "vista.h"
+#include "../model/persistenza.h"
 
-MainWindow::MainWindow(Serra *serra,QWidget *parent): QMainWindow(parent){
+
+MainWindow::MainWindow(Serra *serra,QWidget *parent):  QMainWindow(parent), serra(serra){
     addMenu();//aggiungo il menu
     Vista* vista_principale= new Vista(serra);
     setCentralWidget(vista_principale);
@@ -17,9 +19,8 @@ MainWindow::MainWindow(Serra *serra,QWidget *parent): QMainWindow(parent){
     QString stylesheet=QLatin1String(file.readAll());
     setStyleSheet(stylesheet);
 
-
-
 }
+
 
 void MainWindow::addMenu(){
     QMenuBar* menubar= new QMenuBar(this);
@@ -29,6 +30,7 @@ void MainWindow::addMenu(){
         QIcon(QPixmap((":/icone/import.svg"))),"Apri");
 
     QAction* salva = new QAction(QIcon(QPixmap((":/icone/save.svg"))),"Salva");
+    connect(salva, &QAction::triggered, this, &MainWindow::salvataggio);
     salva->setShortcut(QKeySequence(Qt::CTRL | Qt::Key_S));
 
     QAction* save_as = new QAction("Salva con nome");
@@ -44,6 +46,11 @@ void MainWindow::addMenu(){
     menubar->addAction(apri);
 
     this->setMenuBar(menubar);
+}
+
+void MainWindow::salvataggio(){
+    Persistenza lercio(serra);
+    lercio.scrivi();
 }
 
 

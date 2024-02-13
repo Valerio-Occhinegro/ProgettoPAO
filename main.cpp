@@ -1,5 +1,7 @@
 #include <QApplication>
 #include <iostream>//////////////////////////////
+#include <string>
+#include <fstream>
 
 #include "./view/mainwindow.h"
 #include "./model/termometro.h"
@@ -45,7 +47,20 @@ int main(int argc, char *argv[]){
     serra->addSensore(decimo);
     serra->addSensore(undicesimo);
 
-    serra->print();
+    /*std::fstream file;
+    std::string nome="../Gestione_serre/persistenza.csv";
+    file.open(nome,std::ios_base::out);
+    std::string yolo="topare";
+    if (file.is_open()) {
+        //file << serra->print();
+        file << yolo;
+        std::cout<<"miaop"<<std::endl;
+
+    }
+    else
+        std::cout<<"Barba e caffe soosso"<<std::endl;
+*/
+
     //vista
     MainWindow w(serra);
     w.show();
