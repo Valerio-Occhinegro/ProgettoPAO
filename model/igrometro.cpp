@@ -11,11 +11,10 @@ Igrometro::Igrometro(std::string n)  : Sensore(n, 5.0, 27.0, 30.0, 75.0) {
 }
 
 void Igrometro::printMeasure() const{
-    std::cout<<"\n nome del sensore: "<<getName()<<std::endl;
-    std::cout << "umidita registrate: "<< std::endl;
+    std::cout<<"Igrometro"<<','<<std::endl;
+    std::cout<<getName()<<','<<std::endl;
     for (unsigned short i = 0; i < 24; ++i)
-        std::cout << "Ora " << i<< ": " << getMeasure()[i] << " %"<< std::endl;
-    std::cout << "Min: "<<getMin()<< " %"<<" Max: "<<getMax()<< " %"<< std::endl;
+        std::cout << getMeasure()[i] <<","<< std::endl;
 }
 
 std::vector<double> Igrometro::calcMeasure(){

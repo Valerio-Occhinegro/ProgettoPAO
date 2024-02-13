@@ -45,6 +45,7 @@ int main(int argc, char *argv[]){
     serra->addSensore(decimo);
     serra->addSensore(undicesimo);
 
+    serra->print();
     //vista
     MainWindow w(serra);
     w.show();

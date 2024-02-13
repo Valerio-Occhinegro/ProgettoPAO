@@ -10,13 +10,12 @@ Termometro::Termometro(std::string n) : Sensore(n, 5.0, 10.0, 5.0, 30.0){
     setMax();
 }
 void Termometro::printMeasure() const{
-    std::cout<<"\n nome del sensore: "<<getName()<<std::endl;
-    std::cout << "tempertaure registrate: "<< std::endl;
+    std::cout<<"Termometro"<<','<<std::endl;
+    std::cout<<getName()<<','<<std::endl;
     for (unsigned short i = 0; i < 24; ++i)
-        std::cout << "Ora " << i<< ": " << getMeasure()[i] << " C"<< std::endl;
-
-    std::cout << "Min: "<<getMin()<< " C"<<" Max: "<<getMax()<< " C"<< std::endl;
+        std::cout << getMeasure()[i] <<","<< std::endl;
 }
+
 
 std::vector<double> Termometro::calcMeasure(){
     //imposto ore di una giornata

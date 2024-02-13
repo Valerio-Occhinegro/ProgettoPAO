@@ -11,12 +11,12 @@ Luxometro::Luxometro(std::string n) : Sensore(n, 5.0, 20.0, 40.0, 50.0){
 }
 
 void Luxometro::printMeasure() const{
-    std::cout<<"\n nome del sensore: "<<getName()<<std::endl;
-    std::cout << "illuminazioni registrate: "<< std::endl;
+    std::cout<<"Luxometro"<<','<<std::endl;
+    std::cout<<getName()<<','<<std::endl;
     for (unsigned short i = 0; i < 24; ++i)
-        std::cout << "Ora " << i<< ": " << getMeasure()[i] << " LUX"<< std::endl;
-    std::cout << "Min: "<<getMin()<< " LUX"<<" Max: "<<getMax()<< " LUX"<< std::endl;
+        std::cout << getMeasure()[i] <<","<< std::endl;
 }
+
 
 std::vector<double> Luxometro::calcMeasure(){
     //imposto ore di una giornata
