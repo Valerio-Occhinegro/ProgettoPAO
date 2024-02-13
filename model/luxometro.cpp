@@ -1,6 +1,4 @@
 #include <cmath>
-#include <iostream>
-
 #include "luxometro.h"
 #define pi 3.1415
 
@@ -10,11 +8,21 @@ Luxometro::Luxometro(std::string n) : Sensore(n, 5.0, 20.0, 40.0, 50.0){
     setMax();
 }
 
-void Luxometro::printMeasure() const{
-    std::cout<<"Luxometro"<<','<<std::endl;
-    std::cout<<getName()<<','<<std::endl;
-    for (unsigned short i = 0; i < 24; ++i)
-        std::cout << getMeasure()[i] <<","<< std::endl;
+std::string Luxometro::printMeasure() const{
+    std::string stampa;
+    stampa+="Luxometro";
+    stampa.push_back(',');
+    stampa.push_back('\n');
+    stampa+=getName();
+    stampa.push_back(',');
+    stampa.push_back('\n');
+    for (unsigned short i = 0; i < 24; ++i){
+        stampa+=getMeasure()[i];
+        stampa.push_back(',');
+        stampa.push_back('\n');
+
+    }
+    return stampa;
 }
 
 

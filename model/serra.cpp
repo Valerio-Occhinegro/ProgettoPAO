@@ -36,11 +36,13 @@ void Serra::insert(Sensore* s){
     sensori.push_back(s);
 }
 
-void Serra::print()const{
+std::string Serra::print()const{
+    std::string stampa;
     for(std::vector<Sensore *>::const_iterator it = sensori.begin(); it!= sensori.end(); ++it){
-        (*it)->printMeasure();
+        stampa+=(*it)->printMeasure();
+        stampa.push_back('\n');
     }
-
+    return stampa;
 }
 
 bool Serra::controlla(std::string inserita){

@@ -16,7 +16,7 @@ public:
     ~Serra();
     std::vector<Sensore*>& getSensori();
     Sensore * search(std::string);
-    void print() const;
+    std::string print() const;
 
     bool controlla(std::string);
 

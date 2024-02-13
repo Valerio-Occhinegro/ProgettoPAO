@@ -6,7 +6,7 @@
 class Termometro : public Sensore{
 public:
     Termometro(std::string);
-    void printMeasure() const override;
+    std::string printMeasure() const override;
     std::vector<double> calcMeasure() override;
     void accept(SensorVisitorInterface & visitor) override;
 };

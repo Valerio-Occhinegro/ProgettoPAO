@@ -17,6 +17,7 @@ SOURCES += \
     model/sensorinfovisitor.cpp \
     model/serra.cpp \
     model/termometro.cpp \
+    model/persistenza.cpp \
     view/igro_blocco.cpp \
     view/lux_blocco.cpp \
     view/mainwindow.cpp \
@@ -37,6 +38,7 @@ HEADERS += \
     model/sensorvisitorinterface.h \
     model/serra.h \
     model/termometro.h \
+    model/persistenza.h \
     view/igro_blocco.h \
     view/lux_blocco.h \
     view/mainwindow.h \

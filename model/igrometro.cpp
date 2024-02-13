@@ -1,5 +1,5 @@
 #include <cmath>
-#include <iostream>
+
 
 #include "igrometro.h"
 #define pi 3.1415
@@ -10,11 +10,21 @@ Igrometro::Igrometro(std::string n)  : Sensore(n, 5.0, 27.0, 30.0, 75.0) {
     setMax();
 }
 
-void Igrometro::printMeasure() const{
-    std::cout<<"Igrometro"<<','<<std::endl;
-    std::cout<<getName()<<','<<std::endl;
-    for (unsigned short i = 0; i < 24; ++i)
-        std::cout << getMeasure()[i] <<","<< std::endl;
+std::string Igrometro::printMeasure() const{
+    std::string stampa;
+    stampa+="Igrometro";
+    stampa.push_back(',');
+    stampa.push_back('\n');
+    stampa+=getName();
+    stampa.push_back(',');
+    stampa.push_back('\n');
+    for (unsigned short i = 0; i < 24; ++i){
+        stampa+=getMeasure()[i];
+        stampa.push_back(',');
+        stampa.push_back('\n');
+
+    }
+    return stampa;
 }
 
 std::vector<double> Igrometro::calcMeasure(){

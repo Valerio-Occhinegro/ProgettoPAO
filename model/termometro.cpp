@@ -1,6 +1,7 @@
 #include <cmath>
 #include <iostream>
 
+
 #include "termometro.h"
 #define pi 3.1415
 
@@ -9,11 +10,21 @@ Termometro::Termometro(std::string n) : Sensore(n, 5.0, 10.0, 5.0, 30.0){
     setMin();
     setMax();
 }
-void Termometro::printMeasure() const{
-    std::cout<<"Termometro"<<','<<std::endl;
-    std::cout<<getName()<<','<<std::endl;
-    for (unsigned short i = 0; i < 24; ++i)
-        std::cout << getMeasure()[i] <<","<< std::endl;
+std::string Termometro::printMeasure() const{
+    std::string stampa;
+    stampa+="Termometro";
+    stampa.push_back(',');
+    stampa.push_back('\n');
+    stampa+=getName();
+    stampa.push_back(',');
+    stampa.push_back('\n');
+    for (unsigned short i = 0; i < 24; ++i){
+        stampa+=getMeasure()[i];
+        stampa.push_back(',');
+        stampa.push_back('\n');
+
+    }
+    return stampa;
 }
 
 

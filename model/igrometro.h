@@ -6,7 +6,7 @@
 class Igrometro : public Sensore{
 public:
     Igrometro(std::string);
-    void printMeasure() const override;
+    std::string printMeasure() const override;
     std::vector<double> calcMeasure() override;
     void accept(SensorVisitorInterface &visitor) override;
 };

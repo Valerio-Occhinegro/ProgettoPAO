@@ -21,7 +21,7 @@ public:
     virtual ~Sensore();
     //funzioni ausiliarie
     double randomizer(double , double );
-    virtual void printMeasure() const=0;
+    virtual std::string printMeasure() const=0;
     //funzioni get
     std::string getName() const;
     double getMin() const;
