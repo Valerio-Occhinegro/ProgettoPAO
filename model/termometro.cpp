@@ -5,7 +5,7 @@
 #include "termometro.h"
 #define pi 3.1415
 
-Termometro::Termometro(std::string n) : Sensore(n, 5.0, 10.0, 5.0, 30.0){
+Termometro::Termometro(std::string n, std::vector<double> v) : Sensore(n, 5.0, 10.0, 5.0, 30.0), vect(v){
     setMeasure();
     setMin();
     setMax();
@@ -25,6 +25,14 @@ std::string Termometro::printMeasure() const{
 
 
 std::vector<double> Termometro::calcMeasure(){
+    // vettore contenente le misurazioni
+    std::vector<double> m;
+
+    if(vect.size()!=0){
+        m=vect;
+    }
+
+    else{
     //imposto ore di una giornata
     const unsigned short ore = 24;
 
@@ -32,8 +40,7 @@ std::vector<double> Termometro::calcMeasure(){
 
     double temperatura_media = randomizer(getMeanMin(), getMeanMax()); // Temperatura media
 
-    // vettore contenente le misurazioni
-    std::vector<double> m;
+
 
     for (unsigned short i = 0; i < ore; ++i){
         //variabile che aggiungerà ulteriori varizioni pseudoprobabilistiche
@@ -42,6 +49,8 @@ std::vector<double> Termometro::calcMeasure(){
         // Simulo le misurazioni di una giornata tramite una funzione periodica
         m.push_back(temperatura_media + ampiezza * (-std::sin((i - ore) * pi / ore))+random);
     }
+    }
+    vect.clear();
     return m;
 
 }

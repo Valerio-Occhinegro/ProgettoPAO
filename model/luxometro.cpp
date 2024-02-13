@@ -2,7 +2,7 @@
 #include "luxometro.h"
 #define pi 3.1415
 
-Luxometro::Luxometro(std::string n) : Sensore(n, 5.0, 20.0, 40.0, 50.0){
+Luxometro::Luxometro(std::string n, std::vector<double> v) : Sensore(n, 5.0, 20.0, 40.0, 50.0), vect(v){
     setMeasure();
     setMin();
     setMax();
@@ -23,15 +23,19 @@ std::string Luxometro::printMeasure() const{
 
 
 std::vector<double> Luxometro::calcMeasure(){
+    // vettore contenente le misurazioni
+    std::vector<double> m;
+
+    if(vect.size()!=0){
+        m=vect;
+    }
+    else{
     //imposto ore di una giornata
     const unsigned short ore = 24;
 
     double ampiezza = randomizer(getAmpMin(), getAmpMax()); // Ampiezza della variazione di illuminazione
 
     double illuminazione_media = randomizer(getMeanMin(), getMeanMax()); // Illuminazione media
-
-    // vettore contenente le misurazioni
-    std::vector<double> m;
 
     for (unsigned short i = 0; i < ore; ++i){
         //variabile che aggiungerà ulteriori varizioni pseudoprobabilistiche
@@ -45,6 +49,8 @@ std::vector<double> Luxometro::calcMeasure(){
         // Simulo le misurazioni di una giornata tramite una funzione periodica
         m.push_back((illuminazione_media + ampiezza * (-std::sin((i - ore) * pi / ore))+random)*1000);
     }
+    }
+    vect.clear();
     return m;
 }
 

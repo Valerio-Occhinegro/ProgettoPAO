@@ -49,8 +49,8 @@ void MainWindow::addMenu(){
 }
 
 void MainWindow::salvataggio(){
-    Persistenza lercio(serra);
-    lercio.scrivi();
+    Persistenza salva(serra);
+    salva.scrivi();
 }
 
 

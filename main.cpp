@@ -1,12 +1,12 @@
 #include <QApplication>
 #include <iostream>//////////////////////////////
 #include <string>
-#include <fstream>
 
 #include "./view/mainwindow.h"
 #include "./model/termometro.h"
 #include "./model/igrometro.h"
 #include "./model/luxometro.h"
+#include "./model/persistenza.h"
 #include "./model/serra.h"
 
 
@@ -15,6 +15,12 @@ int main(int argc, char *argv[]){
     QApplication a(argc, argv);
     a.setWindowIcon(QIcon(":/icone/progetto_serra.svg"));
 
+    Serra *serra=new Serra("serra");
+
+    Persistenza pers(serra);
+    pers.leggi();
+
+    /*
     Sensore * primo=new Termometro("Togliatti");
     Sensore * secondo=new Igrometro("Giolitti");
     Sensore * terzo=new Luxometro("De Gasperi");
@@ -30,7 +36,7 @@ int main(int argc, char *argv[]){
     Sensore * decimo=new Luxometro("Beppo");
     Sensore * undicesimo=new Igrometro("Levi");
 
-    Serra *serra=new Serra("fattoria Piave");
+
 
     serra->addSensore(primo);
     serra->addSensore(secondo);
@@ -46,19 +52,6 @@ int main(int argc, char *argv[]){
 
     serra->addSensore(decimo);
     serra->addSensore(undicesimo);
-
-    /*std::fstream file;
-    std::string nome="../Gestione_serre/persistenza.csv";
-    file.open(nome,std::ios_base::out);
-    std::string yolo="topare";
-    if (file.is_open()) {
-        //file << serra->print();
-        file << yolo;
-        std::cout<<"miaop"<<std::endl;
-
-    }
-    else
-        std::cout<<"Barba e caffe soosso"<<std::endl;
 */
 
     //vista

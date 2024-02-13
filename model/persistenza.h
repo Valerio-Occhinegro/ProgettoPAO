@@ -9,6 +9,7 @@ private:
 public:
     Persistenza(Serra *);
     void scrivi();
+    void leggi();
 };
 
 #endif // PERSISTENZA_H

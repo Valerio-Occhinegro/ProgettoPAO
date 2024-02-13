@@ -4,8 +4,10 @@
 #include "sensore.h"
 
 class Igrometro : public Sensore{
+private:
+    std::vector<double> vect;
 public:
-    Igrometro(std::string);
+    Igrometro(std::string, std::vector<double> v = std::vector<double>() );
     std::string printMeasure() const override;
     std::vector<double> calcMeasure() override;
     void accept(SensorVisitorInterface &visitor) override;
