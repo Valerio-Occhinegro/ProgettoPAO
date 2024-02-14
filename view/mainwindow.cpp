@@ -61,22 +61,26 @@ void MainWindow::esporta(){
     QString fileName;
     fileName = QFileDialog::getSaveFileName(this,tr("Esporta"), "serra", tr("Text files (*.csv)"));
 
+    if(fileName!=""){
     std::string nome=fileName.toStdString();
 
     Persistenza exp(serra);
     exp.scrivi(nome);
+    }
 }
 
 void MainWindow::importa(){
     QString fileName;
     fileName = QFileDialog::getOpenFileName(this,tr("importa"), "", tr("Text files (*.csv)"));
 
+    if(fileName!=""){
     std::string nome=fileName.toStdString();
 
     Persistenza imp(serra);
     imp.leggi(nome);
 
     refresh();
+    }
 }
 
 void MainWindow::refresh(){

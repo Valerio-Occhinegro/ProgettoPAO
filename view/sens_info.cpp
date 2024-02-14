@@ -23,6 +23,7 @@ Sens_info::Sens_info( QWidget *parent): QWidget(parent){
     bRicalcola->setSizePolicy(QSizePolicy::Fixed,QSizePolicy::Fixed);
     bRicalcola->setIcon(QIcon("://icone/reload.svg"));
     bRicalcola->setText("Ricalcola");
+    bRicalcola->setShortcut(QKeySequence(Qt::Key_F5));
     bRicalcola->hide();
     connect(bRicalcola, &QPushButton::pressed, this, &Sens_info::ricalcola);
 

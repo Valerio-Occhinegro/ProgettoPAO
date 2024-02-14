@@ -54,6 +54,7 @@ int main(int argc, char *argv[]){
     serra->addSensore(undicesimo);
 */
 
+
     //vista
     MainWindow w(serra);
     w.show();
