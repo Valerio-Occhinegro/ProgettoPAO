@@ -27,6 +27,7 @@ private:
     QVBoxLayout *mainLayout;
     QHBoxLayout *upLayout;
     QHBoxLayout *downLayout;
+    Serra *serra;
 
 public:
     Vista(Serra *serra,QWidget *parent = nullptr);
@@ -39,6 +40,7 @@ public slots:
     void eliminaSI(Sensore *);
     void add(Sensore *);
     void modify(Sensore *, QString);
+    //void refresh();
 };
 
 #endif // VISTA_H

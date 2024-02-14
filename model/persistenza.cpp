@@ -1,6 +1,7 @@
 #include <fstream>
 #include <iostream>
 #include <sstream>
+
 #include "persistenza.h"
 #include "termometro.h"
 #include "igrometro.h"
@@ -9,9 +10,16 @@
 
 Persistenza::Persistenza(Serra* serra): serra(serra) {}
 
-void Persistenza::scrivi() {
+void Persistenza::scrivi(std::string s) {
     std::fstream file;
-    std::string nome="../Gestione_serre/persistenza.csv";
+    std::string nome;
+
+    if(!s.empty())
+        nome=s;
+
+    else
+        nome="../Gestione_serre/persistenza.csv";
+
 
     file.open(nome,std::ios_base::out);
     if (file.is_open()) {
@@ -20,10 +28,20 @@ void Persistenza::scrivi() {
     file.close();
 }
 
-void Persistenza::leggi(){
-    std::string nome="../Gestione_serre/persistenza.csv";
+void Persistenza::leggi(std::string s){
     std::ifstream file;
     std::string line;
+    std::string nome;
+
+    if(!s.empty())
+        nome=s;
+
+    else
+        nome="../Gestione_serre/persistenza.csv";
+
+    //if(serra->isEmpty()==false)
+    serra->destroy();
+
 
     file.open(nome,std::ios_base::in);
     if(file.is_open()){

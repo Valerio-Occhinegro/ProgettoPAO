@@ -8,8 +8,8 @@ private:
     Serra* serra;
 public:
     Persistenza(Serra *);
-    void scrivi();
-    void leggi();
+    void scrivi(std::string s= std::string());
+    void leggi(std::string s= std::string());
 };
 
 #endif // PERSISTENZA_H

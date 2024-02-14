@@ -1,12 +1,13 @@
 #include "vista.h"
 #include "serra_widget.h"
+#include "mainwindow.h"
 
 
 #include <QMenuBar>
 
 
 
-Vista::Vista(Serra *serra, QWidget *parent): QWidget(parent) {
+Vista::Vista(Serra *serra, QWidget *parent): QWidget(parent), serra(serra) {
     mainLayout= new QVBoxLayout(this);
 
     //creo due layout orizzontali
@@ -41,6 +42,8 @@ Vista::Vista(Serra *serra, QWidget *parent): QWidget(parent) {
     connect(termometri, &Lux_blocco::add, this, &Vista::add);
     connect(igrometri, &Lux_blocco::add, this, &Vista::add);
     connect(luxometri, &Lux_blocco::add, this, &Vista::add);
+
+    //connect(parent, &MainWindow::refresh, this, &Vista::refresh);
 }
 
 void Vista::visualizza(Sensore* s) {
@@ -60,6 +63,13 @@ void Vista::modify(Sensore * s, QString n){
     serraW->modify(s,n);
 
 }
+
+/*void Vista::refresh(){
+    delete termometri;delete igrometri; delete luxometri;
+    termometri=new term_blocco(serra);
+    igrometri=new Igro_blocco(serra);
+    luxometri=new Lux_blocco(serra);
+}*/
 
 
 void Vista::addUpLayout(Serra *serra){

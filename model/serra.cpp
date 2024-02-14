@@ -68,12 +68,14 @@ void Serra::remove( Sensore* s){
 }
 
 void Serra::destroy(){
+    if (!sensori.empty()){
     for(std::vector<Sensore *>::const_iterator it = sensori.begin(); it!= sensori.end(); ++it){
         delete *it;
-        sensori.erase(it);
+       //sensori.erase(it);
+    }
+        sensori.clear();
     }
 }
-
 
 void Serra::addSensore(Sensore *s){
     sensori.push_back(s);
