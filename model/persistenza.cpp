@@ -50,10 +50,10 @@ void Persistenza::leggi(std::string s){
         std::vector<double> measure;
         std::istringstream iss(line);
 
-        std::getline(iss, tipo, ','); //get line (iss assegna alla stringa "tipo" le cose scritte prima della virgola)
-        std::getline(iss, nome, ',');
+        std::getline(iss, tipo, '/'); //get line (iss assegna alla stringa "tipo" le cose scritte prima della virgola)
+        std::getline(iss, nome, '/');
 
-        while (getline(iss, misure, ',')) {
+        while (getline(iss, misure, '/')) {
             measure.push_back(stod(misure));
         }
 
