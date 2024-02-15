@@ -62,7 +62,7 @@ void MainWindow::salvataggio(){
 
 void MainWindow::esporta(){
     QString fileName;
-    fileName = QFileDialog::getSaveFileName(this,tr("Esporta"), "serra", tr("Text files (*.csv)"));
+    fileName = QFileDialog::getSaveFileName(this,tr("Esporta"), "serra.csv", tr("Text files (*.csv)"));
 
     if(fileName!=""){
     std::string nome=fileName.toStdString();
