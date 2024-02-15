@@ -18,7 +18,7 @@ void Persistenza::scrivi(std::string s) {
         nome=s;
 
     else
-        nome="../Gestione_serre/persistenza.csv";
+        nome="persistenza.csv";
 
 
     file.open(nome,std::ios_base::out);
@@ -37,7 +37,7 @@ void Persistenza::leggi(std::string s){
         nome=s;
 
     else
-        nome="../Gestione_serre/persistenza.csv";
+        nome="persistenza.csv";
 
     //if(serra->isEmpty()==false)
     serra->destroy();
