@@ -13,5 +13,7 @@
         <file>icone/stylesheet.qss</file>
         <file>icone/sun.svg</file>
         <file>icone/termometro.svg</file>
+        <file>icone/export_1.svg</file>
+        <file>icone/import_1.svg</file>
     </qresource>
 </RCC>

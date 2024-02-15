@@ -5,13 +5,13 @@
 #include <QFileDialog>
 
 #include "mainwindow.h"
-//#include "vista.h"
+
 #include "../model/persistenza.h"
 
 
 MainWindow::MainWindow(Serra *serra,QWidget *parent):  QMainWindow(parent), serra(serra){
     addMenu();//aggiungo il menu
-    //Vista* vista_principale= new Vista(serra);
+
     vista_principale= new Vista(serra);
     setCentralWidget(vista_principale);
 
@@ -28,18 +28,19 @@ void MainWindow::addMenu(){
     QMenuBar* menubar= new QMenuBar(this);
     QMenu* menu= new QMenu("File",menubar);
 
-    QAction* apri=new QAction(
-    QIcon(QPixmap((":/icone/import.svg"))),"Apri");
+    QAction* apri=new QAction(QIcon(QPixmap((":/icone/import_1.svg"))),"Apri");
     connect(apri, &QAction::triggered, this, &MainWindow::importa);
+    apri->setShortcut(QKeySequence(Qt::CTRL | Qt::SHIFT | Qt::Key_O));
 
     QAction* salva = new QAction(QIcon(QPixmap((":/icone/save.svg"))),"Salva");
     connect(salva, &QAction::triggered, this, &MainWindow::salvataggio);
     salva->setShortcut(QKeySequence(Qt::CTRL | Qt::Key_S));
 
-    QAction* esporta = new QAction("Esporta");
+    QAction* esporta = new QAction(QIcon(QPixmap((":/icone/export_1.svg"))),"Esporta");
     connect(esporta, &QAction::triggered, this, &MainWindow::esporta);
     esporta->setShortcut(QKeySequence(Qt::CTRL | Qt::SHIFT | Qt::Key_S));
 
+    menu->addAction(apri);
 
     menu->addAction(esporta);
 
@@ -48,6 +49,8 @@ void MainWindow::addMenu(){
     menubar->addAction(salva);
 
     menubar->addAction(apri);
+
+    menubar->addAction(esporta);
 
     this->setMenuBar(menubar);
 }
