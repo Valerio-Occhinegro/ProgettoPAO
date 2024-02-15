@@ -13,12 +13,12 @@ Termometro::Termometro(std::string n, std::vector<double> v) : Sensore(n, 5.0, 1
 std::string Termometro::printMeasure() const{
     std::string stampa;
     stampa+="Termometro";
-    stampa.push_back(',');
+    stampa.push_back('/');
     stampa+=getName();
-    stampa.push_back(',');
+    stampa.push_back('/');
     for (unsigned short i = 0; i < 24; ++i){
         stampa+=std::to_string(getMeasure()[i]);
-        stampa.push_back(',');
+        stampa.push_back('/');
     }
     return stampa;
 }
